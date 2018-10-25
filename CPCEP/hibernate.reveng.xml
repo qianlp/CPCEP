@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table name="ht_right_dept_user"></table>
+	<table name="ht_right_dept"></table>
+	<table name="ht_right_role"></table>
+	<table name="ht_right_user_role"></table>
+	<table name="ht_right_user"></table>
+	<table name="ht_right_menu" class="Menu"></table>
+	<table name="ht_user_config" catalog="htoa" class="UserConfig">
+		<primary-key>
+			<generator class="uuid.hex"></generator>
+		</primary-key>
+	</table>
+	<table name="ht_firm_config" catalog="htoa" class="FirmConfig"></table>
+	<table name="ht_depart_business_customer_archives"
+		catalog="chinadept" class="CustomerArchives">
+		<primary-key>
+			<generator class="uuid.hex"></generator>
+		</primary-key>
+	</table>
+	<table name="ht_depart_business_customer_contacts"
+		catalog="chinadept" class="CustomerContacts">
+		<primary-key>
+			<generator class="uuid.hex"></generator>
+		</primary-key>
+	</table>
+	<table name="ht_depart_business_project_comdetailed"
+		catalog="chinadept" class="ProjectComDetailed">
+		<primary-key>
+			<generator class="uuid.hex"></generator>
+		</primary-key>
+	</table>
+	<table name="ht_depart_business_project_comrecord"
+		catalog="chinadept" class="ProjectComRecord">
+		<primary-key>
+			<generator class="uuid.hex"></generator>
+		</primary-key>
+	</table>
+	<table name="ht_depart_business_project_opportunity"
+		catalog="chinadept" class="ProjectOpportunity">
+		<primary-key>
+			<generator class="uuid.hex"></generator>
+		</primary-key>
+	</table>
+<table name="ht_right_doc_info" catalog="chinadept" class="DocInfo">
+	<primary-key>
+		<generator class="uuid.hex"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>
