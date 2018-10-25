@@ -1,0 +1,80 @@
+<Rule>
+	<Basic>
+		<WFNodeName/>
+		<WFNodeDetail/>
+	
+		<WFWithOrg active="1" type="checkbox"/>
+		<WFActivityOwner type="selectmore"/>
+		<!-- <WFFormula active="1" type="checkbox"/> -->
+		<WFApproveStyle active="1" type="checkbox"/>
+		<WFSequenceApprove active="1" type="checkbox"/>
+		<WFApproveNum/>
+		<!--<WFTaskAssign type="list"/>-->
+		<!--<WFMainForm/>-->
+		<!--<WFAgreeId/>-->
+		<WFFieldStatus/>
+		<WFBtnAssign type="list"/>
+		<!--<WFMustSign active="1" type="checkbox"/>-->
+		<!--<WFFlowLog/>-->
+		<WFOpenBefore/>
+		<WFOpenAfter/>
+		<WFSaveBefore/>
+		<WFSaveAfter/>
+		<!--时间控制
+		<WFProcessDuration/>
+		<WFProcessDurationUnit type="selectone"/>
+		
+		<WFTimeLimit active="1" type="checkbox"/>
+		<WFDurationFirst/>
+		<WFDurationFirstUnit type="selectone"/>
+
+		<WFDurationRepeat/>
+		<WFDurationRepeatUnit type="selectone"/>
+		-->
+	</Basic>
+	<!--
+	<Freedom>
+		<WFNodeName/>
+		<WFNodeDetail/>
+	</Freedom>
+	-->
+	<Judge>
+		<WFNodeName/>
+		<WFNodeDetail/>
+		<WFAlert/>
+		<WFYesFn/>
+		<WFNoFn/>
+	</Judge>
+	<Router>
+		<WFNodeName/>
+		<!--<WFIsSee active="隐藏" type="checkbox"/>-->
+		<WFNodeDetail/>
+		<WFRelationType type="selectone"/>
+		<WFTacheNameSelect active="1" type="checkbox"/>
+		<WFAgreeMark active="1" type="checkbox"/>
+		<WFCondition/>
+<!--
+		<WFNodeColor/>
+		-->
+		<WFMailEnabled active="1" type="checkbox"/>
+		<WFMailTitle/>
+		<WFMailContent/>
+		<WFPhoneEnabled active="1" type="checkbox"/>
+		<WFPhoneContent/>
+
+		<WFRtxEnabled active="1" type="checkbox"/>
+		<WFRtxContent/>
+		<!--<WFReceiveObject type="selectmore"/>-->
+		<WFAllObject active="1" type="checkbox"/>
+		<WFAllReadUsers active="1" type="checkbox"/>
+		<WFOnlyInitiator active="1" type="checkbox"/>
+	
+		<WFFlowLog/>
+		<!--<WFIsOpenDialog active="1" type="checkbox"/>-->
+		
+		<WFLink active="1" type="checkbox"/>
+		<WFActivityOwner type="selectmore"/>
+		<WFTargetWF/>
+		<!-- <WFFieldMapList type="selectmore"/> -->
+	</Router>
+</Rule>

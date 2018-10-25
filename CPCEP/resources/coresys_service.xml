@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+
+	<!-- 模块文档权限嵌套 -->
+	<bean id="prtRoleService" class="htos.coresys.service.impl.PrtRoleServiceImpl">
+		<property name="prtRoleDao" ref="prtRoleDao"></property>
+	</bean>
+	
+	<!-- 将外观模式服务接口orgFacadeService实现类声明成一个bean，并将deptService、userService、deptToUserService注入 -->
+	<bean id="orgFacadeService" class="htos.coresys.service.impl.OrgFacadeServiceImpl">
+		<property name="deptService" ref="deptService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="deptToUserService" ref="deptToUserService"></property>
+		<property name="roleService" ref="roleService"></property>
+		<property name="userToRoleService" ref="userToRoleService"></property>
+		<property name="prtRoleService" ref="prtRoleService"></property>
+	</bean>
+	
+	<!-- 将外观模式服务接口menuFacadeService实现类声明成一个bean，并将注入menuService、buttonService、rightService、menuToBtnService -->
+	<bean id="menuFacadeService" class="htos.coresys.service.impl.MenuFacadeServiceImpl">
+		<property name="menuService" ref="menuService"></property>
+		<property name="buttonService" ref="buttonService"></property>
+		<property name="rightService" ref="rightService"></property>
+		<property name="menuToBtnService" ref="menuToBtnService"></property>
+		
+		<!-- bitwise -->
+		<property name="deptService" ref="deptService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="deptToUserService" ref="deptToUserService"></property>
+	</bean>
+	
+	<!-- 将workFlowService实现类声明成一个bean并将workFlowDao注入 -->
+	<bean id="baseWorkFlowService" class="htos.coresys.service.impl.BaseWorkFlowServiceImpl">
+		<property name="baseWorkFlowDao" ref="baseWorkFlowDao"></property>
+	</bean>
+	
+	<bean id="commonFacadeService" class="htos.coresys.service.impl.CommonFacadeServiceImpl">
+		<property name="menuService" ref="menuService"></property>
+		<property name="commonService" ref="commonService"></property>
+		<property name="rightService" ref="rightService"></property>
+		<property name="msgInfoService" ref="msgInfoService"></property>
+		<property name="baseWorkFlowService" ref="baseWorkFlowService"></property>
+		<property name="adenexaService" ref="adenexaService"></property>
+		<property name="roleService" ref="roleService"></property>
+		<property name="dataRightConfigService" ref="dataRightConfigService"></property>
+		
+	</bean>
+	
+	<bean id="commonWorkFlowService" class="htos.coresys.service.impl.CommonWorkFlowServiceImpl">
+		<property name="menuService" ref="menuService"></property>
+		<property name="commonService" ref="commonService"></property>
+		<property name="rightService" ref="rightService"></property>
+		<property name="msgInfoService" ref="msgInfoService"></property>
+		<property name="baseWorkFlowService" ref="baseWorkFlowService"></property>
+		<property name="adenexaService" ref="adenexaService"></property>
+		<property name="roleService" ref="roleService"></property>
+		<property name="dataRightConfigService" ref="dataRightConfigService"></property>
+		
+	</bean>
+
+	<!-- 将deptService实现类声明成一个bean并将deptDao注入 -->
+	<bean id="deptService" class="htos.coresys.service.impl.DeptServiceImpl">
+		<property name="deptDao" ref="deptDao"></property>
+	</bean>
+
+	<!-- 将userService实现类声明成一个bean并将userDao注入 -->
+	<bean id="userService" class="htos.coresys.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+
+	<!-- 将deptToUserService实现类声明成一个bean并将deptToUserDao注入 -->
+	<bean id="deptToUserService" class="htos.coresys.service.impl.DeptToUserServiceImpl">
+		<property name="deptToUserDao" ref="deptToUserDao"></property>
+	</bean>
+
+
+	<!-- 将roleService实现类声明成一个bean并将roleDao注入 -->
+	<bean id="roleService" class="htos.coresys.service.impl.RoleServiceImpl">
+		<property name="roleDao" ref="roleDao"></property>
+		<property name="commonService" ref="commonService"></property>
+		<property name="objService" ref="commonService"></property>
+		<property name="comRightService" ref="commonFacadeService"></property>
+	</bean>
+
+	<!-- 将roleTypeService实现类声明成一个bean并将roleTypeDao注入 -->
+	<bean id="roleTypeService" class="htos.coresys.service.impl.RoleTypeServiceImpl">
+		<property name="roleTypeDao" ref="roleTypeDao"></property>
+	</bean>
+
+	<!-- 将userToRoleService实现类声明成一个bean并将userToRoleDao注入 -->
+	<bean id="userToRoleService" class="htos.coresys.service.impl.UserToRoleServiceImpl">
+		<property name="userToRoleDao" ref="userToRoleDao"></property>
+	</bean>
+
+	<!-- 将menuService实现类声明成一个bean并将menuDao注入 -->
+	<bean id="menuService" class="htos.coresys.service.impl.MenuServiceImpl">
+		<property name="menuDao" ref="menuDao"></property>
+	</bean>
+	
+	<!-- 将buttonService实现类声明成一个bean并将buttonDao注入 -->
+	<bean id="buttonService" class="htos.coresys.service.impl.ButtonServiceImpl">
+		<property name="buttonDao" ref="buttonDao"></property>
+	</bean>
+	
+	<!-- 将menuToBtnService实现类声明成一个bean并将menuToBtnDao注入 -->
+	<bean id="menuToBtnService" class="htos.coresys.service.impl.MenuToBtnServiceImpl">
+		<property name="menuToBtnDao" ref="menuToBtnDao"></property>
+	</bean>
+	
+
+	<!-- 将rightService实现类声明成一个bean并将rightDao注入 -->
+	<bean id="rightService" class="htos.coresys.service.impl.RightServiceImpl">
+		<property name="rightDao" ref="rightDao"></property>
+	</bean>
+
+	<!-- 将workFlowService实现类声明成一个bean并将workFlowDao注入 -->
+	<bean id="workFlowService" class="htos.coresys.service.impl.WorkFlowServiceImpl">
+		<property name="workFlowDao" ref="workFlowDao"></property>
+		<property name="menuService" ref="menuService"></property>
+	</bean>
+
+	<!-- 将fieldFormService实现类声明成一个bean并将fieldFormDao注入 -->
+	<bean id="fieldFormService" class="htos.coresys.service.impl.FieldFormServiceImpl">
+		<property name="fieldFormDao" ref="fieldFormDao"></property>
+		<property name="menuService" ref="menuService"></property>
+		<property name="commonFacadeService" ref="commonFacadeService"></property>
+		
+	</bean>
+	
+	<!-- 将commonService实现类声明成一个bean并将commonDao注入 -->
+	<bean id="commonService" class="htos.coresys.service.impl.CommonServiceImpl">
+		<property name="commonDao" ref="commonDao"></property>
+	</bean>
+	
+	<!-- 数据展现配置 -->
+	<bean id="exhibitParamService" class="htos.coresys.service.impl.ExhibitParamServiceImpl">
+		<property name="commonService" ref="commonService"></property>
+		<property name="commonServiceParam" ref="commonService"></property>
+		<property name="menuService" ref="menuService"></property>
+	</bean>
+
+	<!-- 文档流水号 -->
+	<bean id="docNumberService" class="htos.coresys.service.impl.DocNumberServiceImpl">
+		<property name="docNumberDao" ref="docNumberDao"></property>
+	</bean>
+	
+	<!-- 文档流水号 -->
+	<bean id="dataRightConfigService" class="htos.coresys.service.impl.DataRightConfigServiceImpl">
+		<property name="commonService" ref="commonService"></property>
+		<property name="deptService" ref="deptService"></property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+
+	<!-- 供应商 -->
+	<bean id="supplierExtDao" class="htos.business.dao.supplier.impl.SupplierExtDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="supplierBillingDao" class="htos.business.dao.supplier.impl.SupplierBillingDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="supplierAttachmentDao" class="htos.business.dao.supplier.impl.SupplierAttachmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="supplierSignupDao" class="htos.business.dao.supplier.impl.SupplierSignupDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!--材料-->
+	<bean id="materialCategoryDao" class="htos.business.dao.material.impl.MaterialCategoryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="materialDao" class="htos.business.dao.material.impl.MaterialDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="materialCategoryParamDao" class="htos.business.dao.material.impl.MaterialCategoryParamDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- 采购 -->
+
+	<!-- 项目类型dao层 -->
+	<!--<bean id="purchaseBussApplyDao" class="htos.business.purchaseBuss.dao.impl.PurchaseBussApplyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>-->
+	<bean id="purchasePlanDao" class="htos.business.dao.procurement.impl.PurchasePlanDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+     <!--招标公告-->
+	<bean id="biddingBulletinTemplateDao" class="htos.business.dao.bulletin.impl.BiddingBulletinTemplateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="biddingBulletinDao" class="htos.business.dao.bulletin.impl.BiddingBulletinDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="supplierBidDao" class="htos.business.dao.bid.impl.SupplierBidDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="invitationDao" class="htos.business.dao.bulletin.impl.InvitationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!--招标文件发布-->
+	<bean id="bidFileReleaseDao" class="htos.business.dao.bidFileRelease.impl.BidFileReleaseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="smsVerifyCodeDao" class="htos.business.dao.sms.impl.SmsVerifyCodeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="goodsScopeDao" class="htos.business.dao.supplier.impl.GoodsScopeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="supplierGoodsScopeDao" class="htos.business.dao.supplier.impl.SupplierGoodsScopeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="bidEvaluationDao" class="htos.business.dao.bid.impl.BidEvaluationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="materialAttrDao" class="htos.business.dao.material.impl.MaterialAttrDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="confirmBidDao" class="htos.business.dao.bid.impl.ConfirmBidDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="purchaseApplyDao" class="htos.business.dao.procurement.impl.PurchaseApplyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="agreementDao"  class="htos.business.dao.agreement.impl.AgreementDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+    <bean id="purchaseInfoTypeDao" class="htos.business.dao.procurement.impl.PurchaseInfoTypeDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+	<bean id="bidFileQuestionDao" class="htos.business.dao.bidFileRelease.impl.BidFileQuestionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="techEvalClarifyDao" class="htos.business.dao.bid.impl.TechEvalClarifyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="purchaseMaterialDao" class="htos.business.dao.procurement.impl.PurchaseMaterialDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="purchaseCandiateDao" class="htos.business.dao.procurement.impl.PurchaseCandiateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+</beans>

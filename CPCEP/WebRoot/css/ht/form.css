@@ -1,0 +1,201 @@
+.mbox-header{
+	position: relative;
+	height: 47px;
+	border-bottom: 2px solid #ec971f;
+}
+.mbox-header  span{
+	letter-spacing:2px;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0;
+	padding: 15px 20px 14px;
+	/* color: #B2C0D1; */
+}
+.form-title{
+	font-weight: bold;
+	padding-left:20px;
+	font-size:16px;
+	vertical-align:middle;
+}
+.wf-quick-link{
+	position:fixed;
+	top:300px;
+	right:20px;
+	z-index:8999;
+}
+.wf-quick-link ul li{
+	margin-bottom:10px;
+}
+
+ul{
+	margin-left: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+.col-md-7-k{
+	box-shadow:0px 0px 5px #737373;
+}
+
+.td_left{
+	width:150px;
+	height:35px;
+	text-align:right;
+	padding-right:3px;
+}
+.td_right{
+	width:250px;
+	height:35px;
+	text-align:left;
+	padding-left:3px;
+	/* background-color:#d3d3d3 */
+}
+#tab{
+	border:0px solid #888;
+}
+#tab td{
+	border-right:0px solid #888;
+	border-bottom:0px solid #888;
+}
+/* #tab tr td{
+	border:1px;
+} */
+.col-md-7 .form-title i{
+	margin-right:5px;margin-bottom:3px;
+}
+
+.col-md-7-k{
+	background:#fff;
+}
+.host-creat{
+	margin-right:4px;
+	padding:10px;
+}
+.host-wrap{
+	position:relative;
+	margin-bottom: 80px;
+}
+.host-footer{
+	position:fixed;
+	bottom: 0;
+	left: 0;
+	width:100%;
+	/* height:60px; */
+	border-top:1px #EBEFF6 solid;
+	color:#FFF; 
+}
+.host-footer.introjs-fixParent{ z-index: 9999999!important; }
+
+.footer-area{
+	min-width:300px;
+	margin: auto;
+	position: relative;
+	z-index: 100;
+	top: 10px;
+}
+.footer-bg{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:#fff;
+	filter:alpha(opacity=90);
+    -moz-opacity:0.9;
+    opacity: 0.9;
+	box-shadow:0px 0px 4px #737373;
+}
+.o-host-application,
+.o-view-application,
+.o-host-attachment,
+.o-view-attachment,
+.o-host-opinion,
+.o-view-opinion,
+.o-flow-chart,
+.o-view-chart{
+	display: inline-block;	
+	width:20px;
+	height:20px;
+	background-image:url(/ht/Home/images/host.png);
+	background-repeat:no-repeat;
+	vertical-align: middle;
+	cursor:pointer;
+}
+.o-view-application{
+	background-position: -0px -20px;
+}
+.o-view-attachment{
+	background-position: -0px -180px;
+}
+.o-view-opinion{
+	background-position: -20px -180px;
+}
+.o-view-chart{
+	background-position: -160px -20px;
+}
+
+.o-view-application-k{
+	background-position: -61px -20px;
+}
+.o-view-attachment-k{
+	background-position: -101px -20px;
+}
+.o-view-opinion-k{
+	background-position:	-141px -20px;
+}
+.o-view-chart-k{
+	background-position: -181px -20px;
+}
+
+.o-host-preview,
+.o-host-print,
+.o-host-read,
+.o-host-download,
+.o-sb-form,
+.o-sb-attachment,
+.o-sb-sign,
+.o-sb-top,
+.o-sb-chart{
+	display: inline-block;	
+	width:32px;
+	height:32px;
+	background-image:url(/ht/Home/images/host.png);
+	background-repeat:no-repeat;
+	vertical-align: middle;
+	cursor:pointer;
+}
+.o-sb-form{
+	background-position: -64px -108px;
+}
+.o-sb-form:hover{
+	background-position: -64px -140px;
+}
+.o-sb-attachment{
+	background-position:-164px -108px;
+}
+.o-sb-attachment:hover{
+	background-position:-164px -140px;
+}
+.o-sb-sign{
+	background-position: -132px -108px;
+}
+.o-sb-sign:hover{
+	background-position: -132px -140px;
+}
+.o-sb-chart{
+	background-position: -31px -108px;
+}
+.o-sb-chart:hover{
+	background-position: -164px -74px;
+}
+.o-sb-top{
+	background-position:-98px -108px;
+}
+.o-sb-top:hover{
+	background-position:-98px -140px;
+}
+#AttMode table{
+	width:98%;
+}
+#AttMode .td_left{
+	text-align:left;
+}

@@ -1,0 +1,161 @@
+.tabToolsBar{
+	margin:0px;padding:0px;
+	border-width:0px;border-collapse:separate;
+	font-size:12px;
+       width:100%;
+}
+#divToolsBar00,#divToolsBar01,#divToolsBar10,#divToolsBar11{
+	margin:0px;padding:0px;width:100%;height:38px
+}
+#divToolsBar01,#divToolsBar11{	
+	background:url(/OA6.0/HT_Common.nsf/FangZhiBg.gif) repeat-x 0px -146px
+}
+#divToolsBar00,#divToolsBar01{
+	border-width:0px;
+}
+#divToolsBar10,#divToolsBar11{
+	border:1px solid #7aa6c0;
+}
+#ToolsBarLeft,#ToolsBarRight{
+	margin:0px;padding:0px;list-style-type:none
+}
+#ToolsBarLeft,#ToolsBarLeft{
+	float:left
+}
+#ToolsBarRight,#ToolsBarRight{
+	float:right
+}
+.divToolsBar li{
+	margin:0px;padding:0px;float:left;margin:0 4px;position:relative
+}
+.divToolsBar li a{
+	cursor:hand;color:#444;text-decoration:none;height:26px;background:url(/OA6.0/HT_Common.nsf/FangZhiBg.gif) repeat-x 0px -152px
+}
+.divToolsBar li a span{
+	background-image:url(picToolsBarBg.gif);float:left;height:26px;
+}
+.divToolsBar li a span.btnSpCenter{
+	float:left;
+	background-repeat:repeat-x;
+	background-position:0px -194px
+}
+.divToolsBar li a:hover span.btnSpCenter{
+	background:url(picToolsBarBg.gif) repeat-x 0px -104px
+}
+.divToolsBar li .btnSpCenter .btnFont{
+	float:left;
+	padding:4px 2px 0px 2px;
+	background-image:none;
+	background-color:none;
+}
+.divToolsBar li a span.btnSpLeft{
+	width:5px;
+	background-repeat:no-repeat;
+	background-position:0px -54px
+}
+.divToolsBar li a:hover span.btnSpLeft{
+	background-position:0px 0px
+}
+.divToolsBar li a span.btnSpRight{
+	width:5px;
+	background-repeat:no-repeat;
+	background-position:-5px -54px
+}
+.divToolsBar li a:hover span.btnSpRight{
+	background-position:-5px 0px
+}
+.divToolsBar li a span.btnSpArrow{
+	width:8px;height:26px;
+	background-repeat:no-repeat;
+	background-position:-1px -345px
+}
+.divToolsBar li a:hover span.btnSpArrow{
+	background-repeat:no-repeat;
+	background-position:-1px -289px
+}
+.divToolsBar li ul{
+	position:absolute;
+	margin:0px;padding:0px;
+	background-image:none;
+	background-color:#7aa6c0;
+	display:none;
+	top:26px;
+	left:0px;
+	border:1px solid #7aa6c0
+}
+.divToolsBar li ul li{
+	background-image:none;
+	background-color:none;
+	white-space:nowrap
+}
+.divToolsBar li ul li a{
+	font-size:12px;
+	padding:4px 5px 0px 5px;
+	height:24px;
+	width:80px;
+	background-image:none;
+	background-color:#7aa6c0;
+}
+.divToolsBar li ul li a:hover{
+	color:#FFA500;
+}
+/*==============================按钮区域(Start)=================================*/
+.ToolsBar_New,.ToolsBar_Save,.ToolsBar_Delete,.ToolsBar_Resend,.ToolsBar_Agree,.ToolsBar_Reject,.ToolsBar_Promulgate,.ToolsBar_Transfer,.ToolsBar_Close,.ToolsBar_Refresh,.ToolsBar_Collapse,.ToolsBar_Expand,.ToolsBar_NewProcess,.ToolsBar_Up,ToolsBar_Down,.ToolsBar_Check,.ToolsBar_Stop,.ToolsBar_Stop,.ToolsBar_Count,.ToolsBar_Edit,.ToolsBar_Finish,.ToolsBar_Print,.ToolsBar_MailSend,.ToolsBar_Re,.ToolsBar_Fw,.ToolsBar_Dict,.ToolsBar_AddCnt,.ToolsBar_Set,.ToolsBar_SameMail,.ToolsBar_Back,.ToolsBar_Recall,.ToolsBar_MailSel,.ToolsBar_MailDel,.ToolsBar_MailDele,.ToolsBar_Revert,.ToolsBar_TransferFold,.ToolsBar_SaveAndNew,.ToolsBar_RightJump,.ToolsBar_LeftJump,.ToolsBar_ReSet,.ToolsBar_Search,.ToolsBar_WFInfo,.ToolsBar_Resume,.ToolsBar_WFStart,.ToolsBar_WFStop,.ToolsBar_Register,.ToolsBar_ZhengWen,.ToolsBar_Attach,.ToolsBar_DelAttach,.ToolsBar_EditAttach,.ToolsBar_EditWF,.ToolsBar_LookWF{
+	float:left;
+	width:18px;
+	height:26px;
+	display:block;
+	font-size:1px;
+	background:url(/OA6.0/HT_Common.nsf/ico.gif) no-repeat;
+	margin-right:2px
+}
+.ToolsBar_New{background-position:-1579px -34px;width:20px;/*新建*/}
+.ToolsBar_Save{background-position:-1358px -35px;width:17px;/*保存*/}
+.ToolsBar_Delete{background-position:-1618px -35px;/*删除*/}
+.ToolsBar_Resend{background-position:-2159px -35px;/*发送*/}
+.ToolsBar_Agree{background-position:-429px -58px;width:20px/*同意*/}
+.ToolsBar_Reject{background-position:-459px -58px;width:20px/*不同意*/}
+.ToolsBar_Promulgate{background-position:-1467px -34px;width:26px;/*发布*/}
+.ToolsBar_Transfer{background-position:-1604px 0px;width:26px;/*文件转移*/}
+.ToolsBar_Close{background-position:-1715px 0px;/*关闭*/}
+.ToolsBar_Refresh{background-position:-1730px -35px;width:22px;/*刷新*/}
+.ToolsBar_Collapse{background-position:-253px 0px;/*折叠*/}
+.ToolsBar_Expand{background-position:-278px 0px;/*展开*/}
+.ToolsBar_NewProcess{background-position:-1989px -35px;/*创建过程*/}
+.ToolsBar_Up{background-position:-1763px -35px;width:16px;/*上一页*/}
+.ToolsBar_Edit{background-position:-2286px -34px;width:26px;/*编辑*/}
+.ToolsBar_Down{background-position:-1797px -35px;width:16px;/*下一页*/}
+.ToolsBar_Check,.ToolsBar_Search{background-position:-32px -57px;width:22px;/*检索*/}
+.ToolsBar_Stop{background-position:-1615px -35px;/*终止*/}
+.ToolsBar_Count{background-position:-2191px -33px;width:20px;/*统计*/}
+.ToolsBar_Finish{background-position:-2124px -34px;width:20px;/*完成*/}
+.ToolsBar_Print{background-position:-1953px -35px;width:20px;/*打印*/}
+.ToolsBar_WFInfo{background-position:-1693px -35px;width:26px;/*流程信息*/}
+.ToolsBar_MailSend{background-position:-1319px -35px;width:26px;/*邮件发送*/}
+.ToolsBar_Re{background-position:-1825px -35px;width:26px}/*回复*/
+.ToolsBar_Fw{background-position:-1391px -35px;width:26px}/*转发*/
+.ToolsBar_Dict{background-position:-2259px -35px;width:16px}/*地址簿*/
+.ToolsBar_AddCnt{background-position:-2191px -33px;width:20px}/*添加联系人*/
+.ToolsBar_Set{background-position:-1506px -34px;width:20px}/*设置*/
+.ToolsBar_SameMail{background-position:-355px -35px}/*同发件人邮箱*/
+.ToolsBar_Back{background-position:-2052px -34px;width:19px}/*返回*/
+.ToolsBar_Recall,.ToolsBar_Resume{background-position:-1921px -36px;width:22px}/*撤回*/
+.ToolsBar_MailSel{background-position:-2125px -35px}/*邮箱选项*/
+.ToolsBar_MailDele{background-position:-1621px -35px;width:24px}/*邮件删除*/
+.ToolsBar_MailDel{background-position:-1652px -35px;width:24px}/*邮件全部删除*/
+.ToolsBar_Revert{background-position:-1824px -35px;width:26px}/*邮件还原*/
+.ToolsBar_TransferFold{background-position:-3px -2px;width:26px;/*文件夹转移*/}
+.ToolsBar_SaveAndNew{background-position:-1860px 2px;width:20px;/*保存并继续添加*/}
+.ToolsBar_RightJump{background-position:-1951px -5px;width:26px}/*右跳转*/
+.ToolsBar_LeftJump{background-position:-2050px -3px;width:26px}/*左跳转*/
+.ToolsBar_ReSet{background-position:-58px -30px;width:20px}/*重置*/
+.ToolsBar_WFStart{background-position:-1860px -33px;width:20px}/*启动*/
+.ToolsBar_WFStop{background-position:-1892px -33px;width:20px}/*终止*/
+.ToolsBar_Register{background-position:-2192px -33px;width:20px }/*全部注册*/
+.ToolsBar_ZhengWen{background-position:-397px -59px;width:20px}/*正文*/
+.ToolsBar_Attach{background-position:-434px -35px}/*附件*/
+.ToolsBar_DelAttach{background-position:-523px -58px;width:20px}/*删除附件*/
+.ToolsBar_EditAttach{background-position:-548px -58px;width:20px}/*编辑附件*/
+.ToolsBar_EditWF{background-position:-614px -56px;width:22px}/*编辑工作流*/
+.ToolsBar_LookWF{background-position:-580px -56px;width:22px}/*查看工作流*/
+/*==============================按钮区域(End)=================================*/

@@ -1,0 +1,183 @@
+<div class="mini-tabs" activeIndex="0" bodyStyle="padding:0;padding-top:5px;border:0;width:100%;height:100%;">
+    <div title="基本信息">
+		<table style="text-align:left;" cellspacing="10">
+			<tr>
+				<td style="width:80px">节点标识：</td>
+				<td><input class="mini-textbox" id="WFNodeId" allowInput="false" style="width:100%"/></td>
+			</tr>
+			<tr>
+				<td>节点名称：</td>
+				<td><input class="mini-textarea" id="WFNodeName" style="width:100%" emptyText="节点名称可以换行"/></td>
+			</tr>
+			<tr>
+				<td>节点描述： </td>
+				<td><input class="mini-textbox" id="WFNodeDetail" style="width:100%"/></td>
+			</tr>
+		</table>
+    </div>
+    <div title="路由方式" >
+		<table style="text-align:left;width:100%" cellspacing="10">
+			<tr>
+				<td style="width:80px">路由方式：</td>
+				<td><input class="mini-radiobuttonlist" id="WFRelationType" value="0" data="[{id:'0',text:'直连'},{id:'1',text:'唯一选择'},{id:'2',text:'条件选择'},{id:'3',text:'条件直连'}]" onvaluechanged="fnRelationType"/></td>
+			</tr>
+			<tr>
+				<td>条件编辑：</td>
+				<td><input class="mini-textbox" id="WFCondition" enabled=false style="width:100%" emptyText="例子:{LoadMoney}<=500&&{wfTacheName}!='拒绝'"/></td>
+			</tr>
+			<tr>
+				<td>默认环节：</td>
+				<td><input class="mini-radiobuttonlist" id="WFTacheNameSelect" enabled=false value="0" data="[{id:'1',text:'是'},{id:'0',text:'否'}]" title="仅路由方式为“唯一选择”时有效"/></td>
+			</tr>
+		</table>
+    </div>
+    <div title="通知方式">
+		<div class="mini-tabs" activeIndex="0" bodyStyle="padding:0;padding-top:5px;border:0;width:100%;height:100%;">
+			<div title="邮件提醒">
+				<table style="text-align:left;width:100%" cellspacing="10">
+					<tr>
+						<td style="width:80px">是否启用：</td>
+						<td><input class="mini-radiobuttonlist" id="WFMailEnabled" value="0" data="[{id:'1',text:'启用'},{id:'0',text:'不启用'}]"/></td>
+					</tr>
+					<tr>
+						<td>邮件标题：</td>
+						<td><input class="mini-textbox" id="WFMailTitle" style="width:100%"/></td>
+					</tr>
+					<tr>
+						<td>邮件内容：</td>
+						<td><input class="mini-textarea" id="WFMailContent" style="width:100%"/></td>
+					</tr>
+				</table>
+			</div>
+			<!---->
+			<div title="腾讯RTX">
+				<table style="text-align:left;width:100%" cellspacing="10">
+					<tr>
+						<td style="width:80px">是否启用：</td>
+						<td><input class="mini-radiobuttonlist" id="WFRtxEnabled" value="0" data="[{id:'1',text:'启用'},{id:'0',text:'不启用'}]"/></td>
+					</tr>
+					<tr>
+						<td>信息内容：</td>
+						<td><input class="mini-textarea" id="WFRtxContent" style="width:100%"/></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div title="手机短信">
+				<table style="text-align:left;width:100%" cellspacing="10">
+					<tr>
+						<td style="width:80px">是否启用： </td>
+						<td><input class="mini-radiobuttonlist" id="WFPhoneEnabled" value="0" data="[{id:'1',text:'启用'},{id:'0',text:'不启用'}]"/></td>
+					</tr>
+					<tr>
+						<td>短信内容：</td>
+						<td><input class="mini-textarea" id="WFPhoneContent" style="width:100%"/></td>
+					</tr>
+				</table>
+			</div>
+			<!---->
+			<div title="通知对象">
+				<table style="text-align:left;">
+					<tr>
+						<td width="50%">
+							<div id="defaultFormula" class="mini-datagrid"
+								style="height:117px" onrowdblclick="setItem" showPager="false"
+								allowCellEdit="true" showModified="false">
+								<div property="columns">
+									<div type="indexcolumn" width="25px"></div>
+									<div field="name" width="100%">公式名称</div>
+								</div>
+							</div>
+						</td>
+						<td width="50%" rowspan=3 valign="top">
+							<div class="mini-tabs" plain="false" style="height:358px"
+								tabAlign="fit">
+								<div title="流程对象">
+									<table style="text-align:left" cellspacing="10">
+										<tr>
+											<td style="text-align:right;">仅发起人：</td>
+											<td><input class="mini-radiobuttonlist"
+												id="WFOnlyInitiator" value="0"
+												data="[{id:'1',text:'是'},{id:'0',text:'否'}]" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">经办人员：</td>
+											<td><input class="mini-radiobuttonlist"
+												id="WFAllReadUsers" value="0"
+												data="[{id:'1',text:'是'},{id:'0',text:'否'}]" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">上一环节处理人：</td>
+											<td><input class="mini-radiobuttonlist" id="WFAllObject"
+												value="0" data="[{id:'1',text:'是'},{id:'0',text:'否'}]" /></td>
+										</tr>
+									</table>
+								</div>
+								<div title="角色列表">
+									<div class="mini-listbox" id="RoleList"
+										onitemdblclick="setItem" style="height:100%"
+										url="../admin/findFlowRoleJson.action">
+										<div property="columns">
+											<div type="indexcolumn" width="25px"></div>
+											<div field="text" width="100%">角色名称</div>
+										</div>
+									</div>
+								</div>
+								<div title="组织目录">
+									<div id='OrgTree' style="width:100%;height:100%"
+										class='mini-tree' showTreeIcon='true' resultAsTree='false'
+										showCheckBox='false' checkRecursive='true'
+										onnodedblclick="setItem" expandOnLoad='0'
+										expandOnDblClick='false' url="../admin/findOrgTree.action"></div>
+								</div>
+								<div title="公式列表">
+									<div class="mini-listbox" id="FarmulaList"
+										onitemdblclick="setItem" style="height:100%"
+										url="../admin/findAllFormula.action">
+										<div property="columns">
+											<div type="indexcolumn" width="25px"></div>
+											<div field="text" width="100%">公式名称</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="defaultRole" class="mini-datagrid" style="height:117px"
+								onrowdblclick="setItem" showPager="false" allowCellEdit="true"
+								showModified="false">
+								<div property="columns">
+									<div type="indexcolumn" width="25px"></div>
+									<div field="name">角色名称</div>
+									<div type="checkboxcolumn" field="js" trueValue="1"
+										falseValue="0" width="45" headerAlign="center" align="center">前端执行</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="mini-listbox" id="defaultPerson"
+								onitemdblclick="setItem" style="height:117px;" textField="id">
+								<div property="columns">
+									<div type="indexcolumn" width="25px"></div>
+									<div field="name" width="100%">人员名称</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+    </div>
+    <div title="流转事件">
+		<table style="width:100%" cellspacing="10">
+			<tr>
+				<td style="width:80px">事件描述:</td>
+				<td><input class="mini-textarea" id="WFFlowLog" style="width:100%"/></td>
+			</tr>
+		</table>
+    </div>
+</div>

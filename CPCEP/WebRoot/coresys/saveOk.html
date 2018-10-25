@@ -1,0 +1,43 @@
+<!DOCTYPE HTML><html><head><title>文档已提交成功！</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+	body.div,h1,h2,h3,ul,li,p{margin:0;padding:0}
+	body.gLdPage{text-align:center}
+	body.gLdPage div,body.gLdPage h3,body.gLdPage p{text-align:left}
+	.loading,.ld_head,.ld_head b,.ld_mian{background-image:url(../img/common/picLoadingBody.gif)}
+	.ld_mian{border:1px solid #7aa6c0}
+	.loading{width:320px;margin-left:auto;margin-right:auto;margin-top:13%;background-position:0 -68px;background-repeat:repeat-x}
+	.ld_head{height:28px;font-size:12px;color:#fff;font-weight:bold;background-position:100% -34px;background-repeat:no-repeat; overflow:hidden}
+	.ld_head b{display:block;height:29px;padding-top:8px;padding-left:10px;background-position:0 0;background-repeat:no-repeat}
+	.ld_mian{border-top:none;background-position:0 -96px;background-repeat:repeat-x;padding-bottom:32px;background-color:#FFFFFF}
+	.ld_mian h3,.ld_mian h2{font-size:11pt;margin-left:-5px;padding-left:119px;background:url(../img/common/icoHandOk.gif) no-repeat 68px 39px;padding-top:0px;line-height:52px;font-weight:normal;color:#7aa6c0;}
+	.ld_mian h3 span{height:40px;padding-top:5px;padding-left:8px;cursor:pointer}
+	.ld_mian h2{font-size:16pt;}
+	.ld_mian h2 span{height:120px;}
+</style>
+<script>
+function wnClose(){
+	var _SelfClose=null;
+	if(window!=top){
+		_SelfClose=function(){top.goCloseTab();};
+	}else{
+		try{
+			_SelfClose=function(){self.close();};
+			if(window.opener){
+				window.opener.location.reload();
+			}
+			//window.opener=null;
+		}catch(e){};
+	}
+	if(_SelfClose){
+		setTimeout(_SelfClose,500);
+	}
+}
+</script>
+</head>
+<body class="gLdPage" onload="wnClose()">
+<div class="loading">
+	<div class="ld_head"><b>操作成功！</b></div>
+	<div class="ld_mian"><h2><span><br><b>文件已保存成功！</b><br></span></h2></div>
+</div>
+</body></html>

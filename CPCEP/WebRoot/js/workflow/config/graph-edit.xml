@@ -1,0 +1,213 @@
+<Editor defaultEdge="vLine">
+	<add as="onInit"><![CDATA[function(){onInit(this)}]]></add>
+	<ui>
+		<add as="graph" element="graph"/>
+		<add as="toolbar" element="toolbar"/>
+		<resource basename="../js/workflow/resources/grapheditor"/>
+	</ui>
+	<Array as="templates">
+		<add as="vLine">
+			<Router label="">
+				<Cell edge="1">
+					<Geometry as="geometry" relative="1"/>
+				</Cell>
+			</Router>
+		</add>
+		<add as="hLine">
+			<Router label="">
+				<Cell edge="1">
+					<Geometry as="geometry" relative="1"/>
+				</Cell>
+			</Router>
+		</add>
+		<add as="sLine">
+			<Router label="">
+				<Cell edge="1">
+					<Geometry as="geometry" relative="1"/>
+				</Cell>
+			</Router>
+		</add>
+		<add as="rLine">
+			<Router label="">
+				<Cell edge="1">
+					<Geometry as="geometry" relative="1"/>
+				</Cell>
+			</Router>
+		</add>
+		<add as="Swimlane">
+			<Swim label="职能名称">
+				<Cell vertex="1" style="Swimlane" connectable="0" >
+					<Geometry as="geometry" width="720" height="96"/>
+				</Cell>
+			</Swim>
+		</add>
+		<add as="hSwim">
+			<Swim label="职能名称">
+				<Cell vertex="1" style="hSwim" connectable="0" >
+					<Geometry as="geometry" width="144" height="576"/>
+				</Cell>
+			</Swim>
+		</add>
+		<add as="Start">
+			<Node label="开始">
+				<Cell vertex="1" style="Start">		
+					<Geometry as="geometry" width="48" height="48"/>
+				</Cell>
+			</Node>
+		</add>
+		<add as="End">
+			<Node label="结束">
+				<Cell vertex="1" style="End">		
+					<Geometry as="geometry" width="48" height="48"/>
+				</Cell>
+			</Node>
+		</add>
+		<add as="Basic">
+			<Node label="基本节点">
+				<Cell vertex="1" style="Basic">		
+					<Geometry as="geometry" width="96" height="48"/>
+				</Cell>
+			</Node>
+		</add>
+<!-- 		<add as="Judge">
+			<Node label="X">
+				<Cell vertex="1" style="Judge">		
+					<Geometry as="geometry" width="84" height="48"/>
+				</Cell>
+			</Node>
+		</add> -->
+	</Array>
+	<Graph as="graph" alternateEdgeStyle="vLine"  dropEnabled="1" cellsResizable="1" gridSize="2" multigraph="0" cloneable="0" foldingEnabled="0">
+		<add as="convertValueToString"><![CDATA[function(cell){return cell.getAttribute('label');}]]></add>
+		<Stylesheet as="stylesheet">
+			<add as="text">
+				<add as="shape" value="rectangle"/>
+				<add as="perimeter" value="rectanglePerimeter"/>
+				<add as="fontSize" value="12"/>
+				<add as="align" value="left"/>
+				<add as="verticalAlign" value="top"/>
+			</add>
+			<add as="defaultVertex" extend="text">
+				<add as="shape" value="rectangle"/>
+				<add as="fontSize" value="12"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="middle"/>
+				<add as="shadow" value="1"/>
+				<add as="strokeColor" value="#C3D9FF"/>
+				<add as="fillColor" value="#C3D9FF"/>
+				<add as="gradientColor" value="white"/>
+			</add>
+			<add as="defaultEdge">
+				<add as="shape" value="connector"/>
+				<add as="fontSize" value="12"/>
+				<add as="rounded" value="1"/>				
+				<add as="labelBackgroundColor" value="white"/>
+				<add as="strokeColor" value="#36393D"/>
+				<add as="strokeWidth" value="1"/>
+				<add as="endArrow" value="classic"/>				
+				<add as="edgeStyle" value="elbowEdgeStyle"/>
+			</add>
+			<add as="Swimlane" extend="defaultVertex">
+				<add as="shape" value="swimlane"/>
+				<add as="shadow" value="0"/>
+				<add as="startSize" value="30"/>
+				<add as="horizontal" value="0"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="middle"/>
+				<add as="strokeColor" value="#808080"/>
+				<add as="fontSize" value="14"/>
+				<add as="fontstyle" value="1"/>
+				<add as="gradientDirection" value="east"/>
+			</add>
+			<add as="hSwim" extend="Swimlane">
+				<add as="horizontal" value="1"/>
+				<add as="gradientDirection" value="south"/>
+			</add>
+			<add as="Basic" extend="defaultVertex">
+				<add as="rounded" value="1"/>
+			</add>
+			<add as="Start" extend="defaultVertex">
+				<add as="shape" value="ellipse"/>
+				<add as="perimeter" value="ellipsePerimeter"/>
+				<add as="strokeColor" value="#CDEB8B"/>
+				<add as="fillColor" value="#CDEB8B"/>
+			</add>
+			<add as="End" extend="Start">
+				<add as="fillColor" value="#FFF"/>
+				<add as="gradientColor" value="#FC0"/>
+			</add>
+<!-- 			<add as="Judge" extend="defaultVertex">
+				<add as="shape" value="rhombus"/>
+				<add as="perimeter" value="rhombusPerimeter"/>
+				<add as="strokeColor" value="#FFCF8A"/>
+				<add as="fillColor" value="#FFCF8A"/>
+				<add as="fontSize" value="12"/>
+			</add> -->
+			<add as="hLine" extend="defaultEdge">
+				<add as="elbow" value="horizontal"/>
+			</add>
+			<add as="vLine" extend="defaultEdge">
+				<add as="elbow" value="vertical"/>
+			</add>
+			<add as="sLine" extend="defaultEdge">
+				<add as="edgeStyle" value='null'/>
+			</add>
+			<add as="rLine" extend="defaultEdge">
+				<add as="edgeStyle" value='entityRelationEdgeStyle'/>
+			</add>
+		</Stylesheet>
+		<GraphModel as="model" prefix="N" maintainEdgeParent="0">
+			<add as="valueForCellChanged"><![CDATA[
+				function(cell, value){
+					var previous = null;
+					if (isNaN(value.nodeType)){
+						previous = cell.getAttribute('label');
+						cell.setAttribute('label',value);
+					}else{
+						previous = cell.value;
+						cell.value = value;
+					}
+					return previous;
+				}
+			]]></add>
+			<root><Cell id="0"/><Cell id="1" parent="0"/></root>
+		</GraphModel>
+	</Graph>
+	<DefaultToolbar as="toolbar">
+		<add as="连接线" mode="connect" icon="../js/workflow/images/Connect.gif"><![CDATA[function(editor){if(editor.defaultEdge!=null){editor.defaultEdge.style="vLine"}}]]></add>
+		<add as="垂直职能框" template="Swimlane" icon="../js/workflow/images/hSwimlane.gif"><![CDATA[function(editor,vertex,evt,target){wfCreateNode(editor,vertex,evt,target,"M")}]]></add>
+		<add as="水平职能框" template="hSwim" icon="../js/workflow/images/vSwimlane.gif"><![CDATA[function(editor,vertex,evt,target){wfCreateNode(editor,vertex,evt,target,"M")}]]></add>
+		<add as="开始节点" template="Start" icon="../js/workflow/images/StartNode.gif"><![CDATA[function(editor,vertex,evt,target){wfCreateNode(editor,vertex,evt,target,"S")}]]></add>
+		<add as="结束节点" template="End" icon="../js/workflow/images/EndNode.gif"><![CDATA[function(editor,vertex,evt,target){wfCreateNode(editor,vertex,evt,target,"E")}]]></add>
+		<add as="基本节点" template="Basic" icon="../js/workflow/images/BasicNode.gif"/>
+		<!-- <add as="决策节点" template="Judge" icon="../js/workflow/images/RhombusNode.gif"/> -->
+	</DefaultToolbar>
+	<DefaultKeyHandler as="keyHandler">
+		<add as="37" action="selectPrevious"/>
+		<add as="38" action="selectParent"/>
+		<add as="40" action="selectChild"/>
+		<add as="39" action="selectNext"/>
+		<add as="46" action="delete"/>
+		<add as="65" control="1" action="selectAll"/>
+	</DefaultKeyHandler>
+	<DefaultPopupMenu as="popupHandler">
+		<add as="properties" action="showProperties" icon="../js/workflow/images/properties.gif" if="cell"/>
+		<separator/>
+		<add as="delete" action="delete" icon="../js/workflow/images/delete16x16.gif" if="cell"/>
+		<separator/>
+		<add as="straight" action="straight" icon="../js/workflow/images/straight16x16.gif" if="cell"/>
+		<add as="horizontal" action="horizontal" icon="../js/workflow/images/horizontal.gif" if="cell"/>
+		<add as="vertical" action="vertical" icon="../js/workflow/images/vertical.gif" if="cell"/>
+		<add as="relation" action="relation" icon="../js/workflow/images/relation.gif" if="cell"/>
+		<separator/>
+		<add as="toFront" action="toFront" icon="../js/workflow/images/tofront.gif" if="cell"/>
+		<add as="toBack" action="toBack" icon="../js/workflow/images/toback.gif" if="cell"/>
+	</DefaultPopupMenu>
+	<Array as="actions">
+		<add as="delete"><![CDATA[function(editor){wfRemoveCheck(editor.graph)}]]></add>
+		<add as="straight"><![CDATA[function(editor){wfLine(editor,"sLine")}]]></add>
+		<add as="horizontal"><![CDATA[function(editor){wfLine(editor,"hLine")}]]></add>
+		<add as="vertical"><![CDATA[function(editor){wfLine(editor,"vLine")}]]></add>
+		<add as="relation"><![CDATA[function(editor){wfLine(editor,"rLine")}]]></add>
+	</Array>
+</Editor>

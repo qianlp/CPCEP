@@ -1,0 +1,121 @@
+/* CSS Document */
+
+@charset "UTF-8";
+/* CSS Document */
+
+/* CSS Reset */
+html {height: 100%; min-width:1116px;}
+body {margin:0; font:12px/2.0 '΢���ź�','Microsoft Yahei','Arial','����'; color: #333; background-color:#fdfeff;}
+form,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,p {margin:0;	padding:0; list-style:none; font-weight:normal; font-size:12px;}
+em,i{font-style:normal;}
+a {text-decoration:none; color: #666; outline:none;}
+a:hover {text-decoration:none; color:#ff7700;}
+img {border:none;}
+.notxt{font-size:0px; line-height:0px; z-index:-999;}
+
+
+/*  ������ʽ */
+.wrap{width:100%; height:100%;}
+
+.meb_logo{width:100%; height:100px;}
+.meb_logo .top{width:1000px; height:100px; margin:0px auto; background:url(../images/logo2.png) no-repeat 0px 16px;}
+.meb_logo .sxha{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/sxha.jpg) no-repeat 0px 16px;}
+.meb_logo .gdyz{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/gdyz.jpg) no-repeat 0px 16px;}
+.meb_logo .scly{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/scly.jpg) no-repeat 0px 16px;}
+.meb_logo .zzgj{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/zzgj.png) no-repeat 0px 16px;}
+.meb_logo .zjct{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/zjct.png) no-repeat 0px 16px;}
+.meb_logo .sxyx{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/sxyx.png) no-repeat 0px 16px;}
+.meb_logo .aited{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/aited.png) no-repeat 0px 16px;}
+.meb_logo .gmgit{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/gmgit.png) no-repeat 0px 16px;}
+.meb_logo .sdzx{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/sdzx.png) no-repeat 0px 16px;}
+.meb_logo .hnzb{width:1000px; height:100px; margin:0px auto; background:url(../images/logo/hnzb.png) no-repeat 0px 16px;}
+
+.main{width:100%; height:400px; background:url(../images/bg2.jpg) no-repeat center bottom #6c95b8;}
+.main_bg{background:url(../images/bg2.jpg) no-repeat center bottom #6c95b8;}
+
+.main .form{width:1000px; height:400px; margin:0px auto; position:relative;}
+.main .form .regist_link{width:160px; height:42px; position:absolute; left:400px; top:280px;}
+.main .form .regist_link a{float:left; width:160px; height:42px; line-height:42px; background-color:#2f7dc0; color:#fff; font-weight:bold; font-size:15px; text-align:center;}
+.main .form .regist_link a:hover{background-color:#3e91d7;}
+.main .form .login{width:340px; height:360px; padding:10px; position:absolute; right:0px; top:20px; background:url(../images/login_bg.png) no-repeat 0px 0px; text-align:center;}
+.main .form .login .hd{width:340px; height:80px; line-height:80px; background-color:#2f7dc0;}
+.main .form .login .hd h2{width:340px; height:50px; line-height:64px; overflow:hidden; font-size:20px; color:#fff; font-weight:bold;}
+.main .form .login .hd span{width:340px; height:30px; line-height:15px; overflow:hidden; font-size:12px; color:#fff;}
+.main .form .login .bd{width:320px; height:270px; padding:10px 10px 0px;}
+
+
+.bd .box{width:320px; height:50px; line-height:50px; float:left;}
+.bd .box .bx_l{width:69px; padding-right:6px; text-align:right; float:left; font-size:14px; font-weight:bold; color:#666;}
+.bd .box .bx_r{width:220px; height:32px; padding:9px 10px 9px 0px; float:left; position:relative;}
+.bd .box .bx_r input{border:0 none; height:32px; line-height:32px; padding:0px 5px; position:absolute; top:9px; left:0px; font-weight:bold; color:#666; font-family:'΢���ź�','Microsoft Yahei','Arial','����';}
+.txt input{width:210px; background:url(../images/input.jpg) no-repeat 0px 0px;}
+.yzm .yzm_l{width:115px; height:32px; float:left;}
+.yzm .yzm_l input{width:110px; background:url(../images/input2.jpg) no-repeat 0px 0px;}
+.yzm .yzm_r{width:105px; height:32px; line-height:32px; text-align:left; float:left;}
+.yzm .yzm_r span{width:64px; padding:0px 0 0; height:32px; float:left;}
+.yzm .yzm_r a{width:36px; line-height:15px; float:left; margin:0px;}
+
+.bd .login_btn{height:40px; line-height:40px; padding:9px 0px;}
+.login_btn input{border:0 none; background:url(../images/login_btn.png) no-repeat 0px 0px; width:272px; height:40px; line-height:40px; font-size:15px; font-weight:bold; color:#fff; cursor:pointer; font-family:'΢���ź�','Microsoft Yahei','Arial','����';}
+.login_btn input:hover{background:url(../images/login_btn_h.png) no-repeat 0px 0px;}
+
+.bot_link a{margin:0px 10px;}
+
+.tooltip{display:none; height:28px; line-height:28px; position:absolute; left:-6px; top:-15px; padding-left:28px; background:url(../images/tooltip.png) no-repeat 0px 0px;}
+.tooltip .tip_con{height:28px; line-height:28px; float:left; padding-right:12px; background:url(../images/tooltip.png) no-repeat right -28px;}
+.tooltip .tip_arrow{width:13px; height:6px; background:url(../images/tip_arrow.png) no-repeat 0px 0px; position:absolute; left:10px; top:27px; z-index:99;}
+
+
+
+/*    regist    */
+.regist{width:100%; border-top:#158acd 2px solid;}
+.regist .rmain{width:1000px; margin:0px auto; padding-top:20px;}
+.regist .pwmain{width:700px; margin:0px auto; padding-top:20px;}
+
+.rmain .rm_tit{width:1000px; height:42px; background:url(../images/step.png) no-repeat 0px 0px;}
+.rmain .rt01{background:url(../images/step.png) no-repeat 0px 0px;}
+.rmain .rt02{background:url(../images/step.png) no-repeat 0px -52px;}
+.rmain .rt03{background:url(../images/step.png) no-repeat 0px -104px;}
+
+.rmain .rm_con{width:998px; margin-top:15px;}
+.pwmain .rm_pw{width:698px; margin-top:15px;}
+
+.reg_button{color:#fff; font-size:14px; font-weight:bold; border:0 none; background-color:#158acd; width:100px; height:34px; float:left; display:inline; margin-right:10px;}
+
+.regSkip{width:920px; height:40px; line-height:40px; padding:20px 0px 20px 80px; font-size:14px; position:relative; top:0px; text-align:left;border:#158acd 1px solid; background:url("../images/regSuc.png") no-repeat 30px center #f4f9fb;}
+
+.footer{width:1000px; height:40px; line-height:40px; padding-top:15px; margin:0px auto; text-align:center; position:relative;}
+.footer .pro{position:absolute; left:0px;}
+.footer .links{position:absolute; right:0px;}
+.footer .links a{margin:0px 10px;}
+
+.table td,.table th{ word-break:break-all; border-right:#deeeee 0px dotted;}
+#orderitems .adpForm select.sel_100{width:95px;}
+
+
+
+/*  ��������  */
+.forgetWrap{width:1000px; min-height:500px; margin:0px auto; border-bottom:#ddd 1px solid;}
+#menu1{width:1000px; padding-top:20px; height:59px;  border-bottom:#ddd 1px solid; float:left;}
+#menu1 a{width:300px; height:60px; float:left; cursor:pointer; background:url(../images/fw-top.png) no-repeat; background-position:0px 0px; font-size:0px; line-height:0px; text-indent:-999em;}
+#menu1 .fw-mail a{background-position:0px 0px;}
+#menu1 .fw-phone a{margin-left:50px; margin-right:50px; background-position:0px -120px;}
+#menu1 .fw-shensu a{background-position:0px -240px;}
+
+#menu1 .fw-mail .menu10{background-position:0px -60px;}
+#menu1 .fw-phone .menu11{background-position:0px -180px;}
+#menu1 .fw-shensu .menu12{background-position:0px -300px;}
+
+#main1{width:600px; height:80px; float:left; margin:60px 200px 0px;}
+
+.fw-form table tr td{height:58px; line-height:58px;}
+.fw-form .fw-icon{width:58px; height:58px; background:url(../images/fw-icon.png) no-repeat;}
+.fw-form .mail-ico{background-position:center 0px;}
+.fw-form .phone-ico{background-position:center -58px;}
+.fw-form .shensu-ico{background-position:center -116px;}
+.fw-form .fw-txt{font-size:14px; line-height:58px; text-align:right;}
+.fw-form .fw-txt a{color:#ff6600; font-weight:bold; margin:0px 5px;}
+.fw-form .fw-input input{width:220px; background:url(../images/fw-input.png) no-repeat 0px 0px; border:none; height:30px; padding:5px 10px; line-height:30px;}
+.fw-txt span{text-align:left; padding-left:20px;}
+.fw-error span{padding-left:20px; font-size:14px; line-height:58px; text-align:left; background:url(../images/fw-icon.png) no-repeat 0px -182px; float:left; color:#ff3300;}
+.fw-form .fw-button a{width:150px; height:40px; line-height:40px; font-size:15px; font-weight:bold; color:#fff; text-align:center; float:left; background:url(../images/fw-btn.png) no-repeat 0px 0px;}

@@ -1,0 +1,25 @@
+	*{margin:0;padding:0;font-family:'Microsoft YaHei'}
+	html,body,form{height:100%;width:100%}element.style {-webkit-user-select: none;}
+	
+	/*上传附件内的form样式待以后调整*/
+	.mini-panel-body form{height:28px;}
+	.mini-panel-body form input{width:95%}
+	/******/
+/*阴影样式*/
+	.yinyingl{background-image:url(/ht/wf/images/shadowL.png);background-repeat:repeat-y;background-position:left}
+	.yinyingr{background-image:url(/ht/wf/images/shadowR.png);background-repeat:repeat-y;background-position:right}
+	.yinyingb{background-image:url(/ht/wf/images/shadowB.png);background-repeat:repeat-x;background-position:bottom}
+	.yinyingt{background-image:url(/ht/wf/images/shadowT.png);background-repeat:repeat-x;background-position:top}
+	.yinyingcr{background-image:url(/ht/wf/images/shadowRc.png);background-repeat:no-repeat;background-position:right bottom}
+	.yinyingcl{background-image:url(/ht/wf/images/shadowLc.png);background-repeat:no-repeat;background-position:left bottom}
+	.yinyingctr{background-image:url(/ht/wf/images/shadowRtc.png);background-repeat:no-repeat;background-position:right top}
+	.yinyingctl{background-image:url(/ht/wf/images/shadowLtc.png);background-repeat:no-repeat;background-position:left top}
+	input{vertical-align:middle}
+	/*意见样式 letter-spacing:3px;*/
+	#showWFIdea{font-size:14px;width:96%;}
+	#showWFIdea .tdIdea{padding:2px;padding-left:5px;line-height:20px;}
+	#showWFIdea .tdIdea span{letter-spacing:0;}
+	#showWFIdea .tdIdeaUser{text-align:right;padding-right:2px;letter-spacing:5px;}
+	#showWFIdea .tdIdeaUser span{letter-spacing:0;}
+	#WFSign{display:none;font-size:16px;font-weight:bold;width:300px;}
+	#btnWFSign{border:#7b9ebd 1px solid;padding:2px;background-color:#cdcdcd;width:100px;height:40px;font-weight:bold;font-size:20px;cursor:pointer}

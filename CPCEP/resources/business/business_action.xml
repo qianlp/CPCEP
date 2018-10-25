@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="supplierAction" class="htos.business.action.supplier.SupplierAction" scope="prototype">
+		<property name="userService" ref="userService"/>
+		<property name="supplierService" ref="supplierService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+		<property name="menuService" ref="menuService"/>
+		<property name="supplierAttachmentService" ref="supplierAttachmentService"/>
+		<property name="biddingBulletinService" ref="biddingBulletinService" />
+		<property name="smsVerifyCodeService" ref="smsVerifyCodeService"/>
+		<property name="goodsScopeCommonFacadeService" ref="commonFacadeService" />
+		<property name="materialCategoryService" ref="materialCategoryService" />
+	</bean>
+
+	<bean id="supplierFileAction" class="htos.business.action.supplier.SupplierFileAction">
+		<property name="supplierAttachmentService" ref="supplierAttachmentService"/>
+	</bean>
+
+	<bean id="materialCategoryAction" class="htos.business.action.material.MaterialCategoryAction" scope="prototype">
+		<property name="materialCategoryService" ref="materialCategoryService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+	<bean id="materialAction" class="htos.business.action.material.MaterialAction" scope="prototype">
+		<property name="materialService" ref="materialService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+		<property name="matCatCommonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+	<bean id="materialCategoryParamAction" class="htos.business.action.material.MaterialCategoryParamAction">
+		<property name="materialCategoryParamService" ref="materialCategoryParamService"/>
+	</bean>
+
+
+	<!--采购类型维护-->
+	<bean id="purchaseInfoTypeAction" class="htos.business.action.procurement.PurchaseInfoTypeAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+	<!--资格审核方式维护-->
+	<bean id="purchaseCheckWayAction" class="htos.business.action.procurement.PurchaseCheckWayAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+	<!--采购执行主体维护-->
+	<bean id="purchaseExecuteBodyAction" class="htos.business.action.procurement.PurchaseExecuteBodyAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+
+
+	<!--采购维护-->
+	<bean id="purchaseAction" class="htos.business.action.procurement.PurchaseAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+		<property name="commonFacadeMaterialService" ref="commonFacadeService"/>
+		<property name="materialAttrService" ref="materialAttrService" />
+		<property name="msgInfoService" ref="msgInfoService"/>
+		<property name="projectCommonFacadeService" ref="commonFacadeService"/>
+		<property name="userService" ref="userService" />
+		<property name="purchaseApplyService" ref="purchaseApplyService" />
+		<property name="purchaseMaterialService" ref="purchaseMaterialService"/>
+	</bean>
+
+	
+
+	<!--采购设备-->
+	<bean id="purchaseMaterialAction" class="htos.business.action.procurement.PurchaseMaterialAction" scope="prototype">
+		<property name="purchaseMaterialService" ref="purchaseMaterialService"/>
+		<property name="commonFacadeService"  ref="commonFacadeService"/>
+		<property name="menuService" ref="menuService"/>
+
+	</bean>
+
+	<!--采购计划-->
+	<bean id="purchasePlanAction" class="htos.business.action.procurement.PurchasePlanAction" scope="prototype">
+		<property name="commonFacadeService"  ref="commonFacadeService"/>
+		<property name="menuService" ref="menuService"/>
+		<property name="commonCandiateService" ref="commonFacadeService"/>
+		<property name="purchasePlanService" ref="purchasePlanService"/>
+        <property name="materialAttrService" ref="materialAttrService" />
+         <property name="commonService" ref="commonService"></property>
+         <property name="commonPurchasePlanService" ref="commonService" ></property>
+		<property name="candidateService" ref="purchaseCandidate"/>
+	</bean>
+
+
+	<!-- 候选供应商-->
+	<bean id="candiateAction" class="htos.business.action.procurement.PurchaseCandiateAction" scope="prototype">
+		<property name="commonFacadeService"  ref="commonFacadeService"/>
+		<property name="menuService" ref="menuService"/>
+		<property name="candidateService" ref="purchaseCandidate"/>
+
+	</bean>
+
+
+
+	<!--所属公司维护-->
+	<bean id="managerOrgAction" class="htos.business.action.project.ManagerOrgAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+	<!--项目基础信息档案-->
+	<bean id="projectAction" class="htos.business.action.project.ProjectAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+    <!--招标-->
+	<!--问题类型维护-->
+	<bean id="issueTypeAction" class="htos.business.action.biddingFile.IssueTypeAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+	<bean id="bidFileAction" class="htos.business.action.biddingFile.BiddingFileAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+		<property name="bidFileReleaseService" ref="bidFileReleaseService"/>
+		<property name="bulletinFacadeService" ref="commonFacadeService" />
+	</bean>
+
+	<!-- 将外观模型FacadeAction声明一个bean并注入facadeService -->
+	<bean id="orgFacadeAction" class="htos.coresys.action.OrgFacadeAction" scope="prototype">
+		<property name="orgFacadeService" ref="orgFacadeService"/>
+		<property name="commonService" ref="commonService"/>
+		<property name="roleComService" ref="commonService"/>
+		<property name="commonServicerole" ref="commonService"/>
+		<property name="supplierService" ref="supplierService"/>
+		<property name="supplierAttachmentService" ref="supplierAttachmentService"/>
+	</bean>
+
+	<bean id="biddingBulletinTemplateAction" class="htos.business.action.bulletin.BiddingBulletinTemplateAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+	<bean id="biddingBulletinAction" class="htos.business.action.bulletin.BiddingBulletinAction">
+		<property name="menuService" ref="menuService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+        <property name="bulletinService" ref="biddingBulletinService"/>
+		<property name="planCommonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+	<bean id="supplierBidAction" class="htos.business.action.bid.SupplierBidAction">
+		<property name="supplierBidService" ref="supplierBidService"/>
+		<property name="biddingFileReleaseCommonFacadeService" ref="commonFacadeService"/>
+		<property name="supplierBidCommonFacadeService" ref="commonFacadeService"/>
+		<property name="supplierAttachmentCommonFacadeService" ref="commonFacadeService"/>
+		<property name="bidEvaluationService" ref="bidEvaluationService"></property>
+		<property name="bidFileQuestionCommonFacadeService" ref="commonFacadeService"></property>
+	</bean>
+
+	<bean id="bidAction" class="htos.business.action.bulletin.BidAction">
+		<property name="service" ref="biddingBulletinService"/>
+		<property name="supplierService" ref="supplierService"/>
+		<property name="bidFileReleaseService" ref="bidFileReleaseService" />
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+		<property name="questionCommonFacadeService" ref="commonFacadeService" />
+		<property name="supplierBidCommonFacadeService" ref="commonFacadeService"></property>
+		<property name="invitationCommonFacadeService" ref="commonFacadeService"></property>
+		<property name="supExtCommonFacadeService" ref="commonFacadeService"></property>
+	</bean>
+
+	<bean id="bidFileQueAction" class="htos.business.action.biddingFile.BidFileQuestionAction" scope="prototype">
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+		<property name="menuService" ref="menuService"/>
+		<property name="bidFileQuestionService" ref="bidFileQuestionService"/>
+		<property name="bidFileReleaseService" ref="bidFileReleaseService"/>
+		<property name="supplierExtCommonFacadeService" ref="commonFacadeService"/>
+		<property name="attachmentCommonFacadeService" ref="commonFacadeService"/>
+
+	</bean>
+
+	<bean id="smsVerifyAction" class="htos.business.action.sms.SmsVerifyAction">
+		<property name="smsVerifyCodeService" ref="smsVerifyCodeService" />
+		<property name="userCommonFacadeService" ref="commonFacadeService"></property>
+	</bean>
+
+	<bean name="bidEvaluationAction" class="htos.business.action.bid.BidEvaluationAction">
+		<property name="bidEvaluationService" ref="bidEvaluationService"/>
+		<property name="techBidEvalCommonFacadeService" ref="commonFacadeService"/>
+		<property name="supplierBidService" ref="supplierBidService"/>
+		<property name="biddingFileReleaseCommonFacadeService" ref="commonFacadeService"/>
+		<property name="bidFileReleaseService" ref="bidFileReleaseService"/>
+		<property name="compBidEvalCommonFacadeService" ref="commonFacadeService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"></property>
+		<property name="workFlowService" ref="workFlowService"></property>
+		<property name="menuFacadeService" ref="menuFacadeService"></property>
+		<property name="commonWorkFlowService" ref="commonWorkFlowService"></property>
+		<property name="baseWorkFlowService" ref="baseWorkFlowService"></property>
+		<property name="commontechFlowService" ref="commonWorkFlowService"></property>
+	</bean>
+
+	<bean name="confirmBidAction" class="htos.business.action.bid.ConfirmBidAction">
+		<property name="confirmBidService" ref="confirmBidService"/>
+		<property name="supplierBidCommonFacadeService" ref="commonFacadeService"/>
+		<property name="supplierBidService" ref="supplierBidService"/>
+		<property name="biddingConfirmCommonFacadeService" ref="commonFacadeService"/>
+		<property name="biddingFileReleaseCommonFacadeService" ref="commonFacadeService"/>
+		<property name="msgInfoService" ref="msgInfoService"/>
+	</bean>
+	<bean name="agreementAction" class="htos.business.action.agreement.AgreementAction">
+		<property name="agreementService" ref="agreementService"/>
+		<property name="projectCommonFacadeService" ref="commonFacadeService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+		<property name="menuService" ref="menuService"/>
+	</bean>
+
+	<bean name="techEvlClarifyAction" class="htos.business.action.bid.TechEvalClarifyAction">
+		<property name="techEvalClarifyCommonFacadeService" ref="commonFacadeService"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+		<property name="attachmentCommonFacadeService" ref="commonFacadeService"/>
+		<property name="service" ref="techEvalClarifyService"/>
+
+	</bean>
+	<!-- 企业性质维护 -->
+	<bean name="bsNatureEnterpriseAction" class="htos.business.action.bid.BsNatureEnterpriseAction">
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+
+	<!-- 企业性质维护 -->
+	<bean name="flowItemMaintainAction" class="htos.business.flow.action.FlowItemMaintainAction">
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+</beans>

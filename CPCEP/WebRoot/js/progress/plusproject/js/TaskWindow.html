@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
+
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="GENERATOR" content="MSHTML 11.00.9600.17842"></HEAD>
+<BODY>
+<DIV class="mini-tabs" id="twin_tabs" style="border: 0px currentColor; border-image: none; width: 100%; height: 100%;" 
+bodystyle="padding:0;" activeindex="0">     
+<DIV title="常规" bodystyle="padding:5px;" name="base">
+<TABLE style="font-size: 12px;">
+  <TBODY>
+  <TR>
+    <TD style="width: 80px;">任务名称：</TD>
+    <TD style="width: 220px;"><INPUT class="mini-textbox" id="twin_name"></TD>
+    <TD style="width: 80px;">负责人：</TD>
+    <TD><INPUT class="mini-combobox" id="twin_principal" showcheckicon="true" multiselect="true" textfield="Name" valuefield="UID"></TD></TR>
+  <TR>
+    <TD>完成百分比：</TD>
+    <TD><INPUT class="mini-spinner" id="twin_percentcomplete" maxvalue="100" minvalue="0"></TD>
+    <TD>部门：</TD>
+    <TD><INPUT class="mini-combobox" id="twin_department" textfield="Name" valuefield="UID"></TD></TR>
+  <TR>
+    <TD>工期：</TD>
+    <TD><INPUT class="mini-spinner" id="twin_duration" maxvalue="10000" minvalue="0"></TD>
+    <TD>工时：</TD>
+    <TD><INPUT class="mini-spinner" id="twin_work" maxvalue="10000" minvalue="0"></TD></TR></TBODY></TABLE><BR>
+<FIELDSET style="padding: 0px; border: 1px solid rgb(146, 165, 199); border-image: none; width: auto;"><LEGEND>日期</LEGEND> 
+            
+<DIV style="padding: 5px;"><SPAN>开始日期：</SPAN>                 <INPUT class="mini-datepicker" id="twin_start"> 
+                <SPAN style="margin-left: 60px;">完成日期：</SPAN>                 
+<INPUT class="mini-datepicker" id="twin_finish">             
+</DIV></FIELDSET><BR>
+<FIELDSET id="fs_actualdate" style="padding: 0px; border: 1px solid rgb(146, 165, 199); border-image: none; width: auto;"><LEGEND>实际日期</LEGEND> 
+            
+<DIV style="padding: 5px;"><SPAN>开始日期：</SPAN>                 <INPUT class="mini-datepicker" id="twin_actualstart"> 
+                <SPAN style="margin-left: 60px;">完成日期：</SPAN>                 
+<INPUT class="mini-datepicker" id="twin_actualfinish">             
+</DIV></FIELDSET></DIV>
+<DIV title="前置任务">
+<DIV class="mini-panel" style="width: 100%; height: 100%;" bodystyle="padding:0;" 
+borderstyle="border:0" showtoolbar="true" showheader="false">
+<DIV class="mini-toolbar" id="twin_linkbar" style="border: 0px currentColor; border-image: none;" 
+property="toolbar"><A class="mini-button" id="twin_linkadd">增加</A>               
+  <A class="mini-button" id="twin_linkdel">删除</A>             </DIV>
+<DIV class="mini-datagrid" id="twin_linkgrid" style="width: 100%; height: 100%;" 
+borderstyle="border:0;" showfooter="false" allowcellselect="true" allowcelledit="true">
+<DIV property="columns">
+<DIV editor="textbox" field="PredecessorID">标识</DIV>
+<DIV field="PredecessorName" width="200">任务名称</DIV>
+<DIV editor="{type: 'combobox', valueField: 'ID', textField: 'Name'}" field="Type">类型</DIV>
+<DIV editor="{type: 'spinner', minValue: -1000, maxValue: 1000}" 
+field="LinkLag">延隔时间</DIV></DIV></DIV></DIV></DIV>
+
+<!--
+<DIV title="资源">
+<DIV class="mini-panel" style="width: 100%; height: 100%;" bodystyle="padding:0;" 
+borderstyle="border:0" showtoolbar="true" showheader="false">
+<DIV class="mini-toolbar" id="twin_resbar" style="border: 0px currentColor; border-image: none;" 
+property="toolbar"><A class="mini-button" id="twin_resadd">增加</A>                
+ <A class="mini-button" id="twin_resdel">删除</A>             </DIV>
+ 
+<DIV class="mini-datagrid" id="twin_resgrid" style="width: 100%; height: 100%;" 
+borderstyle="border:0;" showfooter="false" allowcellselect="true" allowcelledit="true">
+<DIV property="columns">
+<DIV editor="{type: 'combobox', valueField: 'UID', textField: 'Name'}" field="ResourceUID" 
+width="200">资源名称</DIV>
+<DIV editor="{type: 'spinner', minValue: 0, maxValue: 100}" field="Units" width="100">分配单位</DIV></DIV></DIV></DIV></DIV>
+-->
+<DIV title="高级" bodystyle="padding:5px;">
+<FIELDSET style="padding: 0px; border: 1px solid rgb(146, 165, 199); border-image: none; width: auto;"><LEGEND>任务限制</LEGEND> 
+            
+<DIV style="padding: 5px;">
+<DIV><SPAN>限制类型：</SPAN>                     <INPUT class="mini-combobox" id="twin_constrainttype" textfield="Name" valuefield="ID"> 
+                    <SPAN style="margin-left: 70px;">限制日期：</SPAN>                
+     <INPUT class="mini-datepicker" id="twin_constraintdate">                 
+</DIV>
+<DIV style="margin-top: 8px;"><INPUT disabled="" class="mini-checkbox" id="twin_fixeddate" text="固定日期（限摘要任务）"> 
+                                      </DIV>
+<DIV 
+style="margin-top: 8px;"><INPUT class="mini-checkbox" id="twin_milestone" text="标记为里程碑"> 
+                                      </DIV>
+<DIV 
+style="margin-top: 8px;"><INPUT class="mini-checkbox" id="twin_critical2" text="标记为关键任务（手动）"> 
+                                      </DIV>
+<DIV style="margin-top: 8px;">                
+WBS：<INPUT class="mini-textbox" id="twin_wbs">                 
+</DIV></DIV></FIELDSET></DIV>
+<DIV title="备注" bodystyle="padding:5px;">
+<DIV class="mini-textarea" id="twin_notes" 
+style="width: 100%; height: 100%;"></DIV></DIV>
+</DIV></BODY></HTML>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="    
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd  
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- 加载数据库属性配置文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<context:component-scan base-package="htos"/>
+	<!-- 数据库连接池c3p0配置 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="jdbcUrl" value="${db.url}"></property>
+		<property name="driverClass" value="${db.driverClassName}"></property>
+		<property name="user" value="${db.username}"></property>
+		<property name="password" value="${db.password}"></property>
+		<property name="maxPoolSize" value="200"></property>
+		<property name="minPoolSize" value="10"></property>
+		<property name="initialPoolSize" value="10"></property>
+		<property name="maxIdleTime" value="30"></property>
+	</bean>
+
+	<!-- session工厂 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
+		<!-- 自动扫描注解方式配置的hibernate类文件 -->
+		<property name="packagesToScan">
+			<list>
+				<value>htos.coresys.entity</value>
+				<value>htos.common.entity</value>
+				<value>htos.demo.entity</value>
+				<value>htos.sysfmt.param.entity</value>
+				<value>htos.sysfmt.file.entity</value>
+				<value>htos.sysfmt.business.entity</value>
+				<value>htos.sysfmt.meetsummary.entity</value>
+				<value>htos.sysfmt.project.entity</value>
+				<value>htos.sysfmt.borrow.entity</value>
+				<value>htos.sysfmt.rectification.entity</value>
+				<value>htos.sysfmt.schedule.entity</value>
+				<value>htos.sysfmt.invest.entity</value>
+				<value>htos.sysfmt.message.entity</value>
+				<value>htos.sysfmt.information.entity</value>
+				<value>htos.sysfmt.personnel.entity</value>
+				<value>htos.sysfmt.checkAttendance.entity</value>
+				<value>htos.sysfmt.scheduleparam.entity</value>
+				<value>htos.sysfmt.schedulespecial.entity</value>
+				<value>htos.sysfmt.schedulechiefcontrol.entity</value>
+				<value>htos.sysfmt.fund.entity</value>
+				<value>htos.sysfmt.schedulemilestone.entity</value>
+				<value>htos.sysfmt.schedulecommon.entity</value>
+				<value>htos.sysfmt.design.entity</value>
+				<value>htos.cost.*.entity</value>
+				<!--<value>htos.fee.*.entity</value>-->
+				<value>htos.amb.*.entity</value>
+				<value>htos.sysfmt.expenses.entity</value>
+				<value>htos.amb.ambprofitview.entity</value>
+
+				<!-- rongtongtec 合同管理 -->
+				<value>htos.sysfmt.contract.entity</value>
+				<value>htos.sysfmt.communication.entity</value>
+				
+				<!-- 收入合同zsw -->
+				<value>htos.sysfmt.incomeBuss.entity</value>
+				<value>htos.sysfmt.incomeinfo.entity</value>
+				<!-- 人事模块 员工异动zsw -->
+				<value>htos.sysfmt.employeeTurnover.entity</value>
+				<!-- 客户管理 -->
+				<value>htos.sysfmt.cutsomer.entity</value>
+				<!-- 资产管理 -->
+				<value>htos.sysfmt.asset.entity</value>
+				
+				<!-- 供应商管理-->
+				<value>htos.sysfmt.supplier.entity</value>
+				
+				<!-- 进度管理-->
+				<value>htos.sysfmt.schedule.entity</value>
+				<value>htos.sysfmt.scheduleparam.entity</value>
+				<value>htos.sysfmt.schedulespecial.entity</value>
+				<value>htos.sysfmt.schedulechiefcontrol.entity</value>
+				<value>htos.sysfmt.schedulemilestone.entity</value>
+				<value>htos.sysfmt.schedulecommon.entity</value>
+				<!-- 现场管理 -->
+				<value>htos.sysfmt.scene.entity</value>
+				
+				<!-- 未立项管理 -->
+				<value>htos.sysfmt.noproject.entity</value>
+				
+				<!-- 资金计划管理 -->
+				<value>htos.sysfmt.fundingPlan.entity</value>
+
+				<!-- 供应商 -->
+				<value>htos.business.entity.supplier</value>
+				
+				<!-- 采购管理 -->
+				<value>htos.business.entity.procurement</value>
+
+				<!-- 材料管理-->
+				<value>htos.business.entity.material</value>
+				<!--招标公告-->
+
+				<!-- 招标公告管理-->
+				<value>htos.business.entity.bulletin</value>
+
+				<!-- 招标文件发布管理-->
+				<value>htos.business.entity.biddingFile</value>
+
+				<!--项目档案-->
+				<value>htos.business.entity.project</value>
+
+				<!-- 投标-->
+				<value>htos.business.entity.bid</value>
+
+
+				<value>htos.business.entity</value>
+
+
+				<value>htos.business.flow.entity</value>
+			</list>
+		</property>
+	</bean>
+
+	
+
+	<!-- 配置事务通知属性 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!-- 定义事务传播属性 -->
+		<tx:attributes>
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="merge*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED"/>
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="new*" propagation="REQUIRED" />
+			<tx:method name="set*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="change*" propagation="REQUIRED" />
+			<tx:method name="job*" propagation="REQUIRED" />
+			<tx:method name="reset*" propagation="REQUIRED" />
+			<tx:method name="check*" propagation="REQUIRED" />
+			<tx:method name="register*" propagation="REQUIRED" />
+			<tx:method name="signup" propagation="REQUIRED" />
+			<tx:method name="signCheck" propagation="REQUIRED" />
+			<tx:method name="open" propagation="REQUIRED" />
+			<tx:method name="invite" propagation="REQUIRED" />
+			<tx:method name="enable" propagation="REQUIRED" />
+			<tx:method name="send" propagation="REQUIRED" />
+			<tx:method name="deleteScope" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="load*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 登录拦截器 -->
+	<bean id="LoginInterceptor" class="htos.coresys.interceptor.LoginInterceptor"></bean>
+
+	<!-- 配置事务切面 -->
+	<aop:config>
+		<aop:pointcut id="serviceOperation"
+			expression="execution(* htos.*.service.*.*(..)) || execution(* htos.*.*.service.*.*(..)) || execution(* htos.*.service.*.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />
+	</aop:config>
+
+	<!-- 自定义切面 -->
+	<bean id="myAspect" class="htos.coresys.aop.MyAspectInterceptor"></bean>
+	<aop:config>
+		<aop:aspect id="myAspectProcessor" ref="myAspect">
+			<aop:pointcut id="beforeMethod" expression="execution(* htos.coresys.dao.BaseDao.save*(..))" />
+			<!--  <aop:pointcut id="afterMethod" expression="execution(* com.ht.right.dao.BaseDao.save*(..))" />-->
+			<aop:before method="beforeSave" pointcut-ref="beforeMethod" />
+			<!-- <aop:after-returning method="after" pointcut-ref="afterMethod" /> -->
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>

@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+	</head>
+	<body text="#000000" bgcolor="#FFFFFF">
+		<form method="post" action="" enctype="multipart/form-data" name="_fmComUpFile">
+		<input name="pid"><br>
+		<input name="className"><br>
+		<br>
+		<input id="ComUpFileID" type="file" name="file"><br>
+		<input type="button" onclick="document.forms[0].submit()">
+	 </form>
+	</body>
+</html>

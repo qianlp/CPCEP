@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<script language="JavaScript" type="text/javascript">
+document._domino_target = "_self";
+function _doClick(v, o, t, h) {
+  var form = document._fmSearchCommon;
+  if (form.onsubmit) {
+     var retVal = form.onsubmit();
+     if (typeof retVal == "boolean" && retVal == false)
+       return false;
+  }
+  var target = document._domino_target;
+  if (o.href != null) {
+    if (o.target != null)
+       target = o.target;
+  } else {
+    if (t != null)
+      target = t;
+  }
+  form.target = target;
+  form.__Click.value = v;
+  if (h != null)
+    form.action += h;
+  form.submit();
+  return false;
+}
+</script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<form method="post" action="" name="_fmSearchCommon">
+<input type="hidden" name="__Click" value="0"><!--此注释不允许删除读取字段用-->
+<!--以下是所要展现的搜索条件-->
+<div class="search_content">
+<div class="search_title">项目编号：</div>
+<div class="search_field" Operator="@" DataType="text" Item="">
+<input name="projectNo" class="mini-textbox"></div>
+</div>
+<div class="search_content">
+<div class="search_title">项目名称：</div>
+<div class="search_field" Operator="@" DataType="text" Item="">
+<input name="projectName" class="mini-textbox"></div>
+</div>
+</div>
+<!--此注释不允许删除读取字段用--></form>
+</body>
+</html>
+"

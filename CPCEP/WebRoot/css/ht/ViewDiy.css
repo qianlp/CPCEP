@@ -1,0 +1,91 @@
+	body .mini-treegrid,.mini-pagertree .mini-grid-headerCell{
+		border:1px solid;
+		border-color: transparent;
+	}
+	body .mini-treegrid,.mini-pagertree .mini-grid-cell{
+		height:35px;
+		line-height:35px;
+		border-right:1px dotted #C7C7C7;
+		font-size:9pt;
+		padding-left:8px;
+		color:#000;
+	}
+
+	body .mini-grid-table .mini-tree-treecell{
+		height:24px;
+		line-height:24px;
+	}
+	.mini-grid-headerCell{
+		background:transparent url(../images/th.gif) repeat-x scroll 0% 0%;background-size:100% 100%;
+		border:1px solid;
+		border-color: transparent;
+		border-bottom:1px solid #B6CAD2;
+		height:34px;line-height:34px;
+		padding-left:5px;
+		color:#000;
+	}
+	.mini-grid-cell{
+		height:35px;
+		line-height:35px;
+		border-right:1px dotted #C7C7C7;
+		font-size:9pt;
+		padding-left:8px;
+		color:#000;
+	}
+	.mini-grid-topRightCell{
+		background:transparent url(../images/th.gif) repeat-x scroll 0% 0%;background-size:100% 100%;
+	}
+	.mini-toolbar{
+		height:35px;
+	}
+	.mini-toolbar table tr td{
+		height:33px;
+	}
+
+	body .mini-toolbar .mini-button{
+		background:url(../images/toolbg.gif) repeat-x;
+		line-height:26px;
+		height:26px;
+		border:solid 1px #d3dbde;
+		float:left;
+		padding-right:6px;
+		margin-right:5px;
+		border-radius: 3px;
+		cursor:pointer;
+		color:#000;
+	}
+	body .mini-toolbar .mini-button-plain{
+		background:url(../images/toolbg.gif) repeat-x;
+		padding:0px;
+		padding-right:6px;
+		color:#000;
+	}
+	body .mini-toolbar .mini-button .mini-button-icon{
+		float:left; margin-left:5px; margin-right:0px; margin-top:2px;
+		padding:3px 8px 4px;
+		padding-left:35px;
+		color:#000;
+	}
+	
+
+	body .mini-toolbar a.mini-button:hover{
+		margin-right:5px;
+		padding-right:6px;
+		color:#000;
+	}
+	
+	body .search_body{
+		display:none;
+	}
+	body .mini-grid-cell-inner,.mini-grid-headerCell-inner{
+		font-family:"微软雅黑";
+		font-size:9pt;
+	}
+
+	body .mini-grid-headerCell-inner{
+		font-weight:bold;
+	}
+	
+	body table{
+		border-collapse:collapse;
+	}

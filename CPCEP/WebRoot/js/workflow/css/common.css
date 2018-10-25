@@ -1,0 +1,171 @@
+/*body{margin:0;padding:0}#graph{position:relative;height:1802px;width:1802px;overflow:auto;cursor:default;background-position:1px 1px;visibility:hidden}#GraphXML{height:99.5%;width:100%;display:none;overflow-x:hidden;border-style:none}#toolbar,#mainActions,#basicActions,#attrWF{float:left;padding-left:20px;padding-top:8px}#divSource{float:right;padding-right:25px;padding-top:14px;font-size:14px}#splash{padding-top:260px}div.Rubberband{position:absolute;overflow:hidden;background:#07F;border-color:#00F;border-style:solid;border-width:1px}textarea.CellEditor{overflow:auto;background:url(../images/transparent.gif);border-color:#000;border-style:solid;border-width:0}div.Window{z-index:1;overflow:hidden;position:absolute;background:url(../images/window.gif);border-style:outset;border-width:1px}table.Window{table-layout:fixed;border-collapse:collapse;font-size:8pt;font-family:Arial}td.WindowPane{vertical-align:top;padding:0}div.WindowPane{overflow:hidden}td.WindowPane td{font-size:8pt;font-family:Arial}td.WindowPane input,select,textarea,radio{font-size:8pt;font-family:Arial;border-color:#8C8C8C;border-style:solid;border-width:1px;padding:1px}td.WindowPane button{float:left;font-size:8pt;font-family:Arial;background:url(../images/button.gif) repeat-x;padding:2px}img.ToolbarItem{margin-right:6px;margin-bottom:6px;border-width:1px}select.ToolbarCombo{vertical-align:top;border-style:inset;border-width:2px}div.ToolbarComboContainer{padding:2px}img.ToolbarMode,img.ToolbarModeSelected{width:25px;height:25px}img.ToolbarMode{border:gray solid 1px;margin:2px 4px 4px 2px}img.ToolbarModeSelected{border-style:inset;border-width:2px;margin:0 2px 2px 0}div.Tooltip{z-index:3;font-family:Arial;font-size:8pt;cursor:default;color:#000;background:#FFC;border-color:#000;border-style:solid;border-width:1px;padding:4px}div.PopupMenu{z-index:2;position:absolute;background:url(../images/window.gif);border-color:#000;border-style:solid;border-width:1px}table.PopupMenu{border-collapse:collapse;margin-top:1px;margin-bottom:1px}tr.PopupMenuItem{color:#000;cursor:default}tr.PopupMenuItem:hover{background-color:#006;color:#FFF}td.PopupMenuItem{font-family:Arial;font-size:8pt;padding:2px 30px 2px 10px}td.PopupMenuIcon{background-color:#D0D0D0;padding:2px 4px}*/
+body {
+	margin:0;
+	padding:0;
+}
+#graph {
+	position:relative;
+/* 	height:1802px;
+	width:1802px; */
+	height:100%;
+	width:100%;
+	overflow:auto;
+	cursor:default;
+	background-position:1px 1px;
+	visibility:hidden;
+}
+#GraphXML {
+	height:99.5%;
+	width:100%;
+	display:none;
+	overflow-x:hidden;
+	border-style:none;
+}
+#toolbar,#mainActions,#basicActions,#attrWF {
+/* 	float:left;
+	padding-left:20px;
+	padding-top:2px; */
+}
+#divSource {
+/* 	float:right;
+	padding-right:25px;
+	padding-top:14px;
+	font-size:14px; */
+}
+#splash {
+	padding-top:260px;
+}
+div.Rubberband {
+	position:absolute;
+	overflow:hidden;
+	background:#07F;
+	border-color:#00F;
+	border-style:solid;
+	border-width:1px;
+}
+textarea.CellEditor {
+	overflow:auto;
+	background:url(../images/transparent.gif);
+	border-color:#000;
+	border-style:solid;
+	border-width:0;
+}
+div.Window {
+	-webkit-box-shadow: 3px 3px 12px #C0C0C0;
+	-moz-box-shadow: 3px 3px 12px #C0C0C0;
+	box-shadow: 3px 3px 12px #C0C0C0;
+	z-index:1;
+	overflow:hidden;
+	position:absolute;
+	background:url(../images/window.gif);
+	border-style:outset;
+	border-width:1px;
+}
+table.Window {
+	table-layout:fixed;
+	border-collapse:collapse;
+	font-size:8pt;
+	font-family:Arial;
+}
+td.WindowPane {
+	vertical-align:top;
+	padding:0;
+}
+div.WindowPane {
+	overflow:hidden;
+}
+td.WindowPane td {
+	font-size:8pt;
+	font-family:Arial;
+}
+td.WindowPane input,td.WindowPane select,td.WindowPane textarea,td.WindowPane radio {
+	font-size:8pt;
+	font-family:Arial;
+	border-color:#8C8C8C;
+	border-style:solid;
+	border-width:1px;
+	padding:1px;
+}
+td.WindowPane button {
+	float:left;
+	font-size:8pt;
+	font-family:Arial;
+	background:url(../images/button.gif) repeat-x;
+	padding:2px;
+}
+img.ToolbarItem {
+	margin-right:6px;
+	margin-bottom:6px;
+	border-width:1px;
+}
+select.ToolbarCombo {
+	vertical-align:top;
+	border-style:inset;
+	border-width:2px;
+}
+div.ToolbarComboContainer {
+	padding:2px;
+}
+img.ToolbarMode,img.ToolbarModeSelected {
+	width:25px;
+	height:25px;
+}
+img.ToolbarMode {
+	border:gray solid 1px;
+	margin:2px 4px 4px 2px;
+}
+img.ToolbarModeSelected {
+	border-style:inset;
+	border-width:2px;
+	margin:0 2px 2px 0;
+}
+div.Tooltip {
+	-webkit-box-shadow: 3px 3px 12px #C0C0C0;
+	-moz-box-shadow: 3px 3px 12px #C0C0C0;
+	box-shadow: 3px 3px 12px #C0C0C0;
+	/* z-index:3; */
+	font-family:Arial;
+	font-size:8pt;
+	cursor:default;
+	color:#000;
+	background:#FFC;
+	border-color:#000;
+	border-style:solid;
+	border-width:1px;
+	padding:4px;
+}
+div.PopupMenu {
+	-webkit-box-shadow: 3px 3px 12px #C0C0C0;
+	-moz-box-shadow: 3px 3px 12px #C0C0C0;
+	box-shadow: 3px 3px 12px #C0C0C0;
+	z-index:2;
+	position:absolute;
+	background:url(../images/window.gif);
+	border-color:#000;
+	border-style:solid;
+	border-width:1px;
+}
+table.PopupMenu {
+	border-collapse:collapse;
+	margin-top:1px;
+	margin-bottom:1px;
+}
+tr.PopupMenuItem {
+	color:#000;
+	cursor:pointer;
+}
+tr.PopupMenuItemHover {
+	background-color:#006;
+	color:#FFF;
+	cursor: pointer;
+}
+td.PopupMenuItem {
+	font-family:Arial;
+	font-size:8pt;
+	padding:2px 30px 2px 10px;
+	white-space: nowrap;
+}
+td.PopupMenuIcon {
+	background-color:#D0D0D0;
+	padding:2px 4px;
+}

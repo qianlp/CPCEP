@@ -1,0 +1,77 @@
+/*
+列头自定义样式
+*/
+.attHeadTdDiy{
+	text-align:center;
+	line-height:26px;
+}
+/*
+列自定义样式
+*/
+.attCellTdDiy{
+	text-align:center;
+	line-height:26px;
+	white-space:normal;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+	word-wrap:break-word;/*支持IE，chrome，FF*/
+}
+.attCellTdDiy:last-child{
+	border-right:0px;
+	line-height:26px;
+	text-align:left;
+	white-space:normal;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+	word-wrap:break-word;/*支持IE，chrome，FF*/
+}
+/*
+附件区域样式
+*/
+.att_att{
+	width:99.8%;
+	border:1px solid #ccc;
+}
+/*
+附件工具条样式
+*/
+.toolbar{
+	height:35px;
+	border:0px;
+	border-bottom:1px solid #ccc;
+}
+/*
+附件工具条标题样式
+*/
+.toolbar-title{
+	width:49%;
+	float:left;
+	text-align:left;
+	line-height:24px;
+}
+/*
+附件工具条按钮样式
+*/
+.toolbar-btn{
+	width:180px;
+	height:24px;
+	float:right;
+	line-height:24px;
+}
+/*
+附件工具条小图标样式
+*/
+.icon-fj{
+	background:url(/ht/images/fj.gif);
+	background-origin:padding-box;
+	background-clip:border-box;
+	background-color:transparent;
+	width:15px;
+	height:15px;
+	background-repeat:no-repeat;
+	background-position-x:6px;
+	background-position-y:50%;
+	padding-left:0px;
+	padding-top:7px;
+}
+/*上传控件样式*/
+.mini-panel-body form{height:28px;}
+.mini-panel-body form input{width:95%}

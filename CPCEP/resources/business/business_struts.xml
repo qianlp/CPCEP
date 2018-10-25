@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<package name="business" namespace="/business" extends="struts-default">
+		<action name="supplierRegisterPage" method="supplierRegisterPage" class="htos.business.action.supplier.SupplierAction">
+			<result name="success">/business/supplier/register.jsp	</result> 
+		</action>
+		<action name="pwdForget" method="pwdForget" class="htos.business.action.supplier.SupplierAction">
+		  <result name="success">/homeTemplate/homeOne/pwdForget.jsp</result>
+		</action>
+		<action name="qualityLibrary" method="qualityLibrary" class="supplierAction">
+			<result name="success">/business/supplier/qualityLibrary.jsp</result> 
+		</action>
+		<action name="checkUser" method="checkUsername" class="htos.business.action.supplier.SupplierAction"/>
+		<action name="register" method="register" class="htos.business.action.supplier.SupplierAction"/>
+		<action name="check" method="check" class="htos.business.action.supplier.SupplierAction"/>
+		<action name="detail" method="detail" class="htos.business.action.supplier.SupplierAction">
+			<result name="success">/business/supplier/detail.jsp</result>
+		</action>
+		<action name="upload" method="upload" class="htos.business.action.supplier.SupplierFileAction"/>
+		<action name="attachments" method="getAttachments" class="htos.business.action.supplier.SupplierAction" />
+		<action name="download" method="downloadAttachment" class="htos.business.action.supplier.SupplierAction" />
+		<action name="loadSupplierForPager" method="loadSupplierForPager" class="supplierAction"/>
+        <!-- 获取邀请招标 -->
+        <action name="findTender" method="findTender" class="supplierAction"/>
+		<!-- 获取供应商所能报名的招标 -->
+		<action name="findInvite" method="findInvite" class="supplierAction"/>
+		<!-- 供货范围 -->
+		<action name="queryScopeList" method="queryScopeList" class="supplierAction"/>
+		<action name="getTradeDetail" method="getTradeDetail" class="supplierAction">
+			<result name="success">/business/supplier/trader.jsp</result>
+		</action>
+		<action name="findInvitation" method="findInvitation" class="bidAction">
+		    <result name="success">/business/supplier/invitation.jsp</result>
+		</action>
+		<action name="signup" method="signup" class="supplierAction">
+			<result name="success">/business/supplier/signup.jsp</result>
+		</action>
+		<action name="traderSignup" method="traderSignup" class="supplierAction"/>
+		<action name="findNeedCheckSignup" method="findNeedCheckSignup" class="supplierAction"/>
+		<action name="signCheck" method="signCheck" class="supplierAction" />
+
+		<action name="enable" method="enable" class="supplierAction" />
+		
+		<action name="verify" method="sendSms" class="smsVerifyAction" />
+		
+		<action name="checkCode" method="checkCode" class="smsVerifyAction"></action>
+		
+		<action name="checkPhon" method="checkPhon" class="smsVerifyAction"></action>
+		
+		<action name="updatePWd" method="updatePWd" class="smsVerifyAction"></action>
+
+		<action name="update" method="update" class="supplierAction" />
+
+		<action name="saveScop" method="saveScop" class="supplierAction" />
+		<action name="scopeDetail" method="scopeDetail" class="supplierAction">
+			<result name="success">/business/supplier/scop.jsp</result>
+		</action>
+		<action name="deleteScope" method="deleteScope" class="supplierAction" />
+
+		<action name="findScope" method="findScope" class="supplierAction" />
+		<action name="findPage" method="findPage" class="supplierAction" />
+		<action name="findCategoryTreeOpen" method="findCategoryTreeOpen" class="materialCategoryAction"/>
+	</package>
+
+	<!-- 材料管理 -->
+	<package name="material" namespace="/business/material" extends="struts-core">
+		<action name="categoryOperate" method="categoryOperate" class="materialCategoryAction"/>
+		<action name="findCategoryTree" method="findCategoryTree" class="materialCategoryAction"/>
+		<action name="loadCategoriesForPage" method="loadCategoriesForPage" class="materialCategoryAction"/>
+		<action name="findCategoryById" method="findCategoryById" class="materialCategoryAction">
+			<result name="success">/business/material/categoryOperation.jsp</result>
+		</action>
+		<action name="deleteCategoryByIds" method="deleteCategoryByIds" class="materialCategoryAction"/>
+		<action name="loadCategoryParamForPage" method="loadCategoryParamForPage" class="materialCategoryParamAction"/>
+		<action name="loadCategoryParam" method="loadCategoryParam" class="materialCategoryParamAction"/>
+		<action name="categoryParamOperation" method="categoryParamOperation" class="materialCategoryParamAction"/>
+		<action name="deleteCategoryParamByIds" method="deleteCategoryParamByIds" class="materialCategoryParamAction"/>
+        <!-- 导入明细库 -->
+        <action name="ImportExcel" method="ImportExcel" class="materialAction"></action>
+		<action name="loadMaterialForPage" method="loadMaterialForPage" class="materialAction"/>
+		<!--采购申请的设备清单接口-->
+		<action name="loadMaterialsForPage" method="loadMaterialsForPage" class="materialAction"/>
+		<action name="materialOperation" method="materialOperation" class="materialAction"/>
+		<action name="findMaterialById" method="findMaterialById" class="materialAction">
+			<result name="success">/business/material/materialOperation.jsp</result>
+		</action>
+		<action name="deleteMaterialByIds" method="deleteMaterialByIds" class="materialAction"/>
+	</package>
+
+	<package name="procurement" namespace="/business/procurement" extends="struts-default">
+		<!--申请的材料参数-->
+		<action name="loadParam" method="loadParam" class="purchaseAction"/>
+		<!-- 采购类型维护(保存与更新) -->
+		<action name="saveUpdateInfoType" method="saveUpdateInfoType" class="purchaseInfoTypeAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryInfoTypeData" method="queryInfoTypeData" class="purchaseInfoTypeAction"/>
+		<action name="queryInfoTypeList" method="queryInfoTypeList" class="purchaseInfoTypeAction"/>
+
+		<!-- 审核方式(保存与更新) -->
+		<action name="saveUpdateCheckWay" method="saveUpdateCheckWay" class="purchaseCheckWayAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryCheckWayData" method="queryCheckWayData" class="purchaseCheckWayAction"/>
+
+		<!-- 采购执行主体(保存与更新) -->
+		<action name="saveUpdateExecuteBody" method="saveUpdateExecuteBody" class="purchaseExecuteBodyAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryExecuteBodyData" method="queryExecuteBodyData" class="purchaseExecuteBodyAction"/>
+
+		<!-- 采购执行主体(保存与更新) -->
+		<action name="saveUpdatePurchase" method="saveUpdatePurchase" class="purchaseAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+
+		<action name="saveDeviceAttr" method="saveDeviceAttr" class="purchaseAction"/>
+		<action name="getDeviceAttr" method="getDeviceAttr" class="purchaseAction"/>
+		<action name="deleteDeviceAttr" method="deleteDeviceAttr" class="purchaseAction"/>
+		<action name="getSupplierDeviceAttr" method="getSupplierDeviceAttr" class="purchaseAction"/>
+
+		<!-- 采购设备() -->
+		<action name="loadMaterialForPage" method="loadMaterialForPage" class="purchaseMaterialAction"/>
+
+		<!-- 查询采购申请-->
+		<action name="queryPurchaseApplyData" method="queryPurchaseApplyData" class="purchaseAction"/>
+
+		<!-- saveorUpdate 采购计划 -->
+
+		<action name="saveUpdatePurchasePlan" method="saveUpdatePurchasePlan" class="purchasePlanAction">
+		   <result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryPurchasePlanData" method="queryPurchasePlanData" class="purchasePlanAction"/>
+		<!-- 候选人列表 -->
+		<action name="loadCandiateForPage" method="loadCandiateForPage" class="candiateAction"/>
+
+		<!--自动生成采购计划编号-->
+
+		<action name="getAmount" method="getAmount" class="purchasePlanAction"/>
+
+
+	</package>
+
+
+	<package name="project" namespace="/business/project" extends="struts-default">
+		<!-- 项目信息所属公司(保存与更新) -->
+		<action name="saveUpdateManagerOrg" method="saveUpdateManagerOrg" class="managerOrgAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryManagerOrgData" method="queryManagerOrgData" class="managerOrgAction"/>
+		<action name="queryManagerOrgList" method="queryManagerOrgList" class="managerOrgAction"/>
+
+		<!-- 项目信息项目基础档案(保存与更新) -->
+		<action name="saveUpdateProject" method="saveUpdateProject" class="projectAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryProjectData" method="queryProjectData" class="projectAction"/>
+		<action name="queryProjectList" method="queryProjectList" class="projectAction"/>
+	</package>
+
+
+	<!--招标公告-->
+	<package name="bulletin" namespace="/business/bulletin" extends="struts-default">
+		<action name="saveUpdateTemplate" method="saveUpdateTemplate" class="biddingBulletinTemplateAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryTemplate" method="queryTemplate" class="biddingBulletinTemplateAction"/>
+		<action name="saveUpdateBulletin" method="saveUpdateBulletin" class="biddingBulletinAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryBulletinData" method="queryBulletinData" class="biddingBulletinAction"/>
+
+
+	</package>
+	<package name="bid" namespace="/business/bid" extends="struts-default">
+		<action name="saveOrUpdateTechBidEval" method="saveOrUpdateTechBidEval" class="bidEvaluationAction">
+			<result name="success">/coresys/saveOk.html</result>
+		</action>
+		<action name="supplierScore" method="supplierScore" class="bidEvaluationAction"/>
+		<action name="techBidEvalMaterialParam" method="techBidEvalMaterialParam" class="bidEvaluationAction"/>
+		<action name="openTechBidEval" method="openTechBidEval" class="bidEvaluationAction">
+			<result name="success">/business/bid/techBidEval.jsp</result>
+		</action>
+		<action name="openCompBidEval" method="openCompBidEval" class="bidEvaluationAction">
+			<!-- <result name="success">/business/bid/compBidEval.jsp</result> -->
+			<result name="success">/business/bid/generalBidEval.jsp</result>
+		</action>
+		
+		<action name="openComp" method="openComp" class="bidEvaluationAction">
+		  <result name="success">/business/bid/generalBidEval.jsp</result>
+		</action>
+		<action name="openTech" method="openTech" class="bidEvaluationAction">
+		  <result name="success">/business/bid/techBidEval.jsp</result>
+		</action>
+		
+		<action name="getBidGrid" method="getBidGrid" class="bidEvaluationAction"></action>
+		<!--流程中展现方法 -->
+		<action name="findDocGeneralBid" method="findDocGeneralBid" class="bidEvaluationAction">
+		    <result name="success">/business/bid/generalBidEval.jsp</result>
+		</action>
+		<!-- 技术招标展现流程 -->
+		<action name="findTechBid" method="findTechBid" class="bidEvaluationAction">
+		    <result name="success">/business/bid/techBidEval.jsp</result>
+		</action>
+		<action name="supplierBidResults" method="supplierBidResults" class="bidEvaluationAction"/>
+		<action name="saveOrUpdateCompBidEval" method="saveOrUpdateCompBidEval" class="bidEvaluationAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="recallBid" method="recallBid" class="supplierBidAction"/>
+		<action name="findSupplierBidFiles" method="findSupplierBidFiles" class="supplierBidAction"/>
+		<action name="inviteSupplierList" method="inviteSupplierList" class="supplierBidAction"/>
+		<action name="showBidOffer" method="showBidOffer" class="supplierBidAction">
+			<result name="success">/business/bid/supplierBidOffer.jsp</result>
+		</action>
+		
+		<action name="rankBidOffer" method="rankBidOffer" class="supplierBidAction"></action>
+		<action name="bidQuestion" method="bidQuestion" class="supplierBidAction">
+			<result name="success">/business/bid/bidQuestionPage.jsp</result>
+		</action>
+		<!-- 20180813 wfp 投标质疑列表页 -->
+		<action name="bidQuestionList" method="bidQuestionList" class="supplierBidAction">
+		</action>
+		<!-- 20180814wfp质疑详情页 -->
+		<action name="bidQuestionDetail" method="bidQuestionDetail" class="supplierBidAction">
+		  <result name="success">/business/bid/bidQuestionDetail.jsp</result>
+		</action>
+		<!-- 20180814wfp质疑保存页 -->
+	<!-- 	<action name="saveBidQuestionDetail" method="saveBidQuestionDetail" class="bidFileQueAction">
+		   <result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action> -->
+		<action name="bidClarifySupList" method="bidClarifySupList" class="bidAction"></action>
+		
+		<action name="showSupplierBidInfo" method="showSupplierBidInfo" class="supplierBidAction">
+			<result name="success">/business/bid/supplierBidInfo.jsp</result>
+		</action>
+		<action name="loadMaterialPrice" method="loadMaterialPrice" class="supplierBidAction"/>
+		<action name="saveOrUpdate" method="saveOrUpdate" class="supplierBidAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="loadSupplierMaterialParam" method="loadSupplierMaterialParam" class="supplierBidAction"/>
+		<!-- 开标列表 -->
+		<action name="listView" method="listView" class="bidAction"/>
+		<!-- 澄清管理列表 -->
+		<action name="bidClarifyList" method="bidClarifyList" class="bidAction"/>
+  
+		<!-- 开标页面 -->
+		<action name="openPage" method="openPage" class="bidAction" >
+			<result name="success">/business/bid/openSuppliers.jsp</result>
+		</action>
+		<action name="bidSuppliers" method="bidSuppliers" class="bidAction"/>
+		<action name="open" method="open" class="bidAction"/>
+
+
+		<!-- 投标供应商列表页面 -->
+		<action name="bidSuppliersPage" method="bidSuppliersPage" class="bidAction" >
+			<result name="success">/business/bid/bidSuppliersPage.jsp</result>
+		</action>
+		<!-- 邀请招标页面 -->
+		<action name="invitePage" method="invitePage" class="bidAction" >
+			<result name="success">/business/bid/invitePage.jsp</result>
+		</action>
+		<action name="inviteForm" method="inviteForm" class="bidAction" >
+			<result name="success">/business/bid/inviteForm.jsp</result>
+		</action>
+		<action name="invite" method="invite" class="bidAction"/>
+		<action name="findMyInvite" method="findMyInvite" class="bidAction"/>
+		<action name="findInvitationSupplier" method="findInvitationSupplier" class="bidAction"/>
+
+		<action name="quotePrice" method="quotePrice" class="bidAction"/>
+		<action name="saveUpdateTechEvalClarify" method="saveUpdateTechEvalClarify" class="techEvlClarifyAction"/>
+
+		<!-- 企业性质类型维护(保存与更新) -->
+		<action name="newsbsNatureEnterprise" method="newsbsNatureEnterprise" class="bsNatureEnterpriseAction">
+		   <result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryBsNatureEnterpriseList" method="queryBsNatureEnterpriseList" class="bsNatureEnterpriseAction"/>
+		<action name="bidClarifyListByPlanId" method="bidClarifyListByPlanId" class="bidAction"/>
+	</package>
+	<!--招标公告-->
+
+	<!--招标文件发布-->
+	<package name="biddingFile" namespace="/business/biddingFile" extends="struts-default">
+
+		<!-- 招标问题类型维护(保存与更新) -->
+		<action name="saveUpdateIssueType" method="saveUpdateIssueType" class="issueTypeAction">
+		   <result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryInfoTypeData" method="queryInfoTypeData" class="issueTypeAction"/>
+		<action name="queryIssueTypeList" method="queryIssueTypeList" class="issueTypeAction"/>
+
+		<action name="saveBidQuestionDetail" method="saveBidQuestionDetail" class="bidFileQueAction">
+		     <result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+        <!-- 20180814 -->
+		 <action name="bidQuestionCheck" method="bidQuestionCheck" class="bidFileQueAction">
+		   <result name="success">/business/bid/bidQuestionDetail.jsp</result>
+		</action>
+		<!-- 招标文件维护(保存与更新) -->
+		<action name="saveUpdateBidFile" method="saveUpdateBidFile" class="bidFileAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="queryBidFileData" method="queryBidFileData" class="bidFileAction"/>
+
+		<!-- 招标质疑维护(保存与更新) -->
+		<action name="saveUpdateBidFileQue" method="saveUpdateBidFileQue" class="bidFileQueAction">
+		</action>
+		<action name="queryBidFileQue" method="queryBidFileQue" class="bidFileQueAction"/>
+		<action name="getBidFileQuestion" method="getBidFileQuestion" class="bidFileQueAction"/>
+		<action name="bidFileFeedBack" method="bidFileFeedBack" class="bidFileQueAction">
+			<result name="success" >/business/biddingFile/bidFileFeedBack.jsp</result>
+		</action>
+		<action name="showQuestionPage" method="showQuestionPage" class="bidFileQueAction">
+			<result name="success" >/business/biddingFile/showQuestionPage.jsp</result>
+		</action>
+
+		<action name="attachmentPage" method="attachmentPage" class="bidFileAction">
+			<result name="success">/business/biddingFile/bidFileAttachment.jsp</result>
+		</action>
+		<action name="attachment" method="attachment" class="bidFileAction"/>
+		<action name="bidQuestionList" method="bidQuestionList" class="bidFileQueAction">
+			<result name="success" >/business/biddingFile/bidFileQuestionManager.jsp</result>
+		</action>
+		<action name="publicClarifyList" method="publicClarifyList" class="bidFileQueAction">
+			<result name="success" >/business/biddingFile/publicClarify.jsp</result>
+		</action>
+		<action name="saveFeedBacks" method="saveFeedBacks" class="bidFileQueAction"/>
+
+		<action name="getQuestionListByBidId" method="getQuestionListByBidId" class="bidFileQueAction"/>
+		<action name="getFeedBackList" method="getFeedBackList" class="bidFileQueAction"/>
+
+	</package>
+
+	<!-- 定标 -->
+	<package name="biddingConfirm" namespace="/business/bidding/confirm" extends="struts-default">
+		<action name="confirmList" method="confirmList" class="confirmBidAction" />
+		<action name="bidInfo" method="bidInfo" class="confirmBidAction" >
+			<result name="success">/business/bid/confirmInfo.jsp</result>
+		</action>
+		<action name="bidSupplier" method="bidSupplier" class="confirmBidAction" />
+		<action name="loadSupplierBidInfo" method="loadSupplierBidInfo" class="confirmBidAction"/>
+		<action name="loadMaterialDetailPrice" method="loadMaterialDetailPrice" class="confirmBidAction"/>
+		<action name="saveOrUpdate" method="saveOrUpdate" class="confirmBidAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="confirmListByPlanId" method="confirmListByPlanId" class="confirmBidAction"/>	
+		<action name="sendMessage" method="sendMessage" class="confirmBidAction"></action>
+	</package>
+	<!--合同-->
+	<package name="agreement" namespace="/business/agreement" extends="struts-default">
+		<action name="queryPurchaseWithProject" method="queryPurchaseWithProject" class="agreementAction"/>
+		<action name="loadProjectInfo" method="loadProjectInfo" class="agreementAction"/>
+		<action name="loadSupplierBidInfo" method="loadSupplierBidInfo" class="agreementAction"/>
+		<action name="loadSupplierInfo" method="loadSupplierInfo" class="agreementAction"/>
+		<action name="saveOrUpdate" method="saveOrUpdate" class="agreementAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="loadPurchaseDeviceInfo" method="loadPurchaseDeviceInfo" class="agreementAction"/>
+	</package>
+
+
+	<!--评标澄清-->
+	<package name="techEvalClarify" namespace="/business/techEvalClarify" extends="struts-default">
+		<action name="techEvalClarify" method="techEvalClarify" class="techEvlClarifyAction">
+		 <result name="success" >/business/clarify/techEvalClarify.jsp</result>
+		</action>
+		<action name="saveUpdateTechEvalClarify" method="saveUpdateTechEvalClarify" class="techEvlClarifyAction"></action>
+		<action name="getTechEvalClarifyList" method="getTechEvalClarifyList" class="techEvlClarifyAction"></action>
+		<action name="showClarifyPage" method="showClarifyPage" class="techEvlClarifyAction" >
+			<result name="success">/business/clarify/showClarify.jsp</result>
+		</action>
+        <!-- 0816wfp -->
+        <action name="clearFeedList" method="clearFeedList" class="techEvlClarifyAction"></action>
+		<action name="showClarifyDetail" method="showClarifyDetail" class="techEvlClarifyAction" >
+			<result name="success">/business/clarify/showClarifyDetail.jsp</result>
+		</action>
+		<action name="clearFeedBackDetail" method="clearFeedBackDetail" class="techEvlClarifyAction">
+		   <result name="success">/business/bid/clearFeedBackDetail.jsp</result>
+		</action>
+        <action name="bidFileClearList" method="bidFileClearList" class="techEvlClarifyAction"></action>
+        <action name="saveClear" method="saveClear" class="techEvlClarifyAction">
+           <result name="success" type="redirect">/coresys/saveOk.html</result>
+         </action>
+        <action name="checkClarify" method="checkClarify" class="techEvlClarifyAction">
+          <result name="success">/business/bid/clearFeedBackDetail.jsp</result>
+        </action>
+        <action name="checkClarifySup" method="checkClarifySup" class="techEvlClarifyAction">
+          <result name="success">/business/bid/clearFeedBackSup.jsp</result>
+        </action>
+	</package>
+	
+	<!--评标澄清-->
+	<package name="flow" namespace="/business/flow" extends="struts-core">
+		<action name="fimOperate" method="fimOperate" class="flowItemMaintainAction">
+		 	<result name="success"  type="redirect" >/business/diagramFlow/flowItemMaintain.jsp</result>
+		</action>
+		<action name="findFirstFim" method="findFirstFim" class="flowItemMaintainAction"></action>
+		<action name="findNodeStatus" method="findNodeStatus" class="flowItemMaintainAction"></action>
+		<action name="findSupSignupList" method="findSupSignupList" class="flowItemMaintainAction"></action>
+		<action name="findSupScopeList" method="findSupScopeList" class="flowItemMaintainAction"></action>
+		<action name="findBidReturn" method="findBidReturn" class="flowItemMaintainAction"></action>
+	</package>
+</struts>

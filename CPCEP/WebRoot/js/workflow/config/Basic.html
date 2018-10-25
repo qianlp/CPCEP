@@ -1,0 +1,174 @@
+<div class="mini-tabs" activeIndex="0" bodyStyle="padding:0;border:0;width:100%;height:100%;" id="wfNodeForm">
+    <div title="基本信息">
+		<table style="text-align:left;" cellspacing="10">
+			<tr>
+				<td width="90px">节点标识：</td>
+				<td><input class="mini-textbox" id="WFNodeId" allowInput="false" style="width:100%"/></td>
+			</tr>
+			<tr>
+				<td>节点名称：</td>
+				<td><input class="mini-textarea" id="WFNodeName" style="width:100%" emptyText="节点名称可以换行"/></td>
+			</tr>
+			<tr>
+				<td>节点描述： </td>
+				<td><input class="mini-textbox" id="WFNodeDetail" style="width:100%"/></td>
+			</tr>
+			<tr>
+				<td style="font-size:14px;font-weight:bold">常&nbsp;&nbsp;用&nbsp;&nbsp;功&nbsp;&nbsp;能</td>
+			</tr>
+			<tr>
+				<td>组织目录：</td>
+				<td><input class="mini-radiobuttonlist" id="WFWithOrg" value="0" data="[{id:'1',text:'启用'},{id:'0',text:'不启用'}]"/></td>
+			</tr>
+			<tr>
+				<td>审批方式：</td>
+				<td><input class="mini-radiobuttonlist" id="WFApproveStyle" value="0" data="[{id:'0',text:'单人'},{id:'1',text:'多人'}]" onvaluechanged="fnApproveStyle"/></td>
+			</tr>
+			<tr>
+				<td>审批顺序：</td>
+				<td><input class="mini-radiobuttonlist" id="WFSequenceApprove" enabled=false value="0" data="[{id:'0',text:'串行'},{id:'1',text:'并行'}]"/></td>
+			</tr>
+			<tr>
+				<td>审批人数：</td>
+				<td><input class="mini-textbox" id="WFApproveNum" enabled=false vtype="int" value="0" style="width:60px"/>（0表示所有人）</td>
+			</tr>
+		</table>
+    </div>
+    <div title="审批人" >
+		<table style="text-align:left;">
+			<tr>
+				<td width="50%">
+				    <div id="defaultFormula" class="mini-datagrid" style="height:117px" onrowdblclick="setItem" showPager="false" allowCellEdit="true" showModified="false">
+						<div property="columns">
+							<div type="indexcolumn" width="25px"></div>
+							<div field="name" width="100%">公式名称</div>
+						</div>
+					</div>
+				</td>
+				<td width="50%" rowspan=3 valign="top">
+				    <div class="mini-tabs" plain="false" style="height:358px" tabAlign="fit">
+					    <div title="角色列表">
+							<div class="mini-listbox" id="RoleList" onitemdblclick="setItem" style="height:100%" url="../admin/findFlowRoleJson.action">
+								<div property="columns">
+									<div type="indexcolumn" width="25px"></div>
+									<div field="text" width="100%">角色名称</div>
+								</div>
+							</div>
+					    </div>
+					    <div title="组织目录">
+							<div id='OrgTree' style="width:100%;height:100%" class='mini-tree' showTreeIcon='true' resultAsTree='false'
+								showCheckBox='false' checkRecursive='true' onnodedblclick="setItem"
+								expandOnLoad='0' expandOnDblClick='false' url="../admin/findOrgTree.action"></div>
+					    </div>
+					    <div title="公式列表">
+							<div class="mini-listbox" id="FarmulaList" onitemdblclick="setItem" style="height:100%" url="../admin/findAllFormula.action">
+								<div property="columns">
+									<div type="indexcolumn" width="25px"></div>
+									<div field="text" width="100%">公式名称</div>
+								</div>
+							</div>
+					    </div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="defaultRole" class="mini-datagrid" style="height:117px" onrowdblclick="setItem" showPager="false" allowCellEdit="true" showModified="false">
+						<div property="columns">
+							<div type="indexcolumn" width="25px"></div>
+							<div field="name">角色名称</div>
+							<div type="checkboxcolumn" field="js" trueValue="1" falseValue="0" width="45" headerAlign="center" align="center">前端执行</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="mini-listbox" id="defaultPerson" onitemdblclick="setItem" style="height:117px;" textField="id">
+						<div property="columns">
+							<div type="indexcolumn" width="25px"></div>
+							<div field="name" width="100%">人员名称</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+    </div>
+    <div title="字段控制">
+        <div class="mini-toolbar" style="border-bottom:0;padding:0px;">
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:100%;">
+                        <a class="mini-button" iconCls="icon-add" onclick="goCopy" plain="true">复制配置</a>
+                        <a class="mini-button" iconCls="icon-goto" onclick="goPaste" plain="true">粘贴配置</a>
+                    </td>
+                    <td style="white-space:nowrap;">
+                        <input id="key" class="mini-textbox" emptyText="请输入姓名" style="width:150px;" onenter=""/>
+                        <a class="mini-button" plain="true">查询</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+	    <div id="fieldStatus" class="mini-datagrid" style="height:337px" sortMode="client"
+	        showPager="false" allowCellEdit="true" allowCellSelect="true" multiSelect="true" 
+	        editNextOnEnterKey="true" editNextRowCell="true" oncellbeginedit="OnCellBeginEdit" showModified="false"
+	    >
+	        <div property="columns">
+	            <div type="indexcolumn"></div>
+	            <div field="name" headerAlign="center" allowSort="true" width="120" >字段名称 </div>
+	            <div field="status" width="60" allowSort="true" headerAlign="center" type="comboboxcolumn">状态
+	            	<input property="editor" class="mini-combobox" style="width:100%;" data="[{id:'edit',text:'编辑'},{id:'must',text:'必填'},{id:'read',text:'只读'},{id:'hide',text:'隐藏'}]" /> 
+	            </div>
+	            <div field="tip" width="220" headerAlign="center">提示
+	            	<input property="editor" class="mini-textbox" style="width:100%;"/>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+    <div title="按钮">
+	    <div id="btnAssign" class="mini-datagrid" style="height:365px" sortMode="client"
+	        showPager="false" allowCellEdit="true" allowCellSelect="true" multiSelect="true" 
+	        editNextOnEnterKey="true" editNextRowCell="true" showModified="false"
+	    >
+	        <div property="columns">
+	            <div type="checkboxcolumn" field="status" trueValue="1" falseValue="0" width="40" headerAlign="center">启用</div>
+
+	            <div field="name" headerAlign="center" allowSort="true" width="120" >按钮名称
+	            	 <input property="editor" class="mini-textbox" style="width:100%"/>
+	            </div>
+	            <div field="icon" width="60" headerAlign="center" type="comboboxcolumn">背景颜色
+	            	<input property="editor" class="mini-combobox" style="width:100%" data="[{id:'btn-default',text:'银灰色'},{id:'btn-primary',text:'深海色'},{id:'btn-success',text:'草绿色'},{id:'btn-info',text:'天蓝色'},{id:'btn-warning',text:'深秋色'},{id:'btn-danger',text:'玫瑰红'}]" />
+	            </div>
+		   		<div field="func" width="120" headerAlign="center">函数名
+	                <input property="editor" class="mini-textbox" style="width:100%"/>
+	            </div>
+	            <div field="align" width="50" headerAlign="center" type="comboboxcolumn">排列方式
+	            	<input property="editor" class="mini-combobox" style="width:100%" data="[{id:'left',text:'居左'},{id:'right',text:'居右'}]" />
+	            </div>
+	        </div>
+	    </div>
+    </div>
+    <div title="其他">
+		<fieldset style="margin-top:5px;"><legend>页面JavaScript行为</legend>
+			<table style="width:100%" cellspacing="10">
+				<tr>
+					<td width="90px">装载前执行：</td>
+					<td><input class="mini-textbox" id="WFOpenBefore" style="width:100%"/></td>
+				</tr>
+				<tr>
+					<td>装载后执行：</td>
+					<td><input class="mini-textbox" id="WFOpenAfter" style="width:100%"/></td>
+				</tr>
+				<tr>
+					<td>提交前执行：</td>
+					<td><input class="mini-textbox" id="WFSaveBefore" style="width:100%"/></td>
+				</tr>
+				<tr>
+					<td>提交后执行：</td>
+					<td><input class="mini-textbox" id="WFSaveAfter" style="width:100%"/></td>
+				</tr>
+			</table>
+		</fieldset>
+    </div>
+
+</div>

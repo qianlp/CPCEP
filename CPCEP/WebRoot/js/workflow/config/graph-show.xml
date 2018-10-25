@@ -1,0 +1,83 @@
+<Editor>
+	<add as="onInit"><![CDATA[function(isFirstTime){onInit(this,isFirstTime)}]]></add>
+	<ui><add as="graph" element="graph"/></ui>
+	<Graph as="graph" enabled="0">
+		<add as="convertValueToString"><![CDATA[function(cell){return cell.getAttribute('label');}]]></add>
+		<Stylesheet as="stylesheet">
+			<add as="text">
+				<add as="shape" value="rectangle"/>
+				<add as="perimeter">Perimeter.RectanglePerimeter</add>
+				<add as="fontSize" value="12"/>
+				<add as="align" value="left"/>
+				<add as="verticalAlign" value="top"/>
+			</add>
+			<add as="defaultVertex" extend="text">
+				<add as="shape" value="rectangle"/>
+				<add as="fontSize" value="12"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="middle"/>
+				<add as="shadow" value="1"/>
+				<add as="strokeColor" value="#C3D9FF"/>
+				<add as="fillColor" value="#C3D9FF"/>
+				<add as="gradientColor" value="white"/>
+			</add>
+			<add as="defaultEdge">
+				<add as="shape" value="connector"/>
+				<add as="fontSize" value="12"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="middle"/>
+				<add as="rounded" value="1"/>
+				<add as="labelBackgroundColor" value="white"/>
+				<add as="strokeColor" value="#36393D"/>
+				<add as="strokeWidth" value="1"/>
+				<add as="endArrow" value="classic"/>
+				<add as="edgeStyle">EdgeStyle.ElbowConnector</add>
+			</add>
+			<add as="Swimlane" extend="defaultVertex">
+				<add as="shape" value="swimlane"/>
+				<add as="shadow" value="0"/>
+				<add as="startSize" value="30"/>
+				<add as="horizontal" value="0"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="middle"/>
+				<add as="strokeColor" value="#808080"/>
+				<add as="fontSize" value="14"/>
+				<add as="fontstyle" value="1"/>
+				<add as="gradientDirection" value="east"/>
+			</add>
+			<add as="hSwim" extend="Swimlane">
+				<add as="horizontal" value="1"/>
+				<add as="gradientDirection" value="south"/>
+			</add>
+			<add as="Basic" extend="defaultVertex">
+				<add as="rounded" value="1"/>
+			</add>
+			<add as="Start" extend="defaultVertex">
+				<add as="shape" value="ellipse"/>
+				<add as="perimeter">Perimeter.EllipsePerimeter</add>
+				<add as="strokeColor" value="#CDEB8B"/>
+				<add as="fillColor" value="#CDEB8B"/>
+			</add>
+			<add as="End" extend="Start">
+				<add as="fillColor" value="#FFF"/>
+				<add as="gradientColor" value="#FC0"/>
+			</add>
+			<add as="Judge" extend="defaultVertex">
+				<add as="shape" value="rhombus"/>
+				<add as="perimeter">Perimeter.RhombusPerimeter</add>
+				<add as="strokeColor" value="#FFCF8A"/>
+				<add as="fillColor" value="#FFCF8A"/>
+				<add as="fontSize" value="12"/>
+			</add>
+			<add as="hLine" extend="defaultEdge">
+				<add as="elbow" value="horizontal"/>
+			</add>
+			<add as="vLine" extend="defaultEdge">
+				<add as="elbow" value="vertical"/>
+			</add>
+			<add as="sLine" extend="defaultEdge">
+				<add as="edgeStyle">null</add>
+			</add>
+		</Stylesheet>
+	</Graph>
+</Editor>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 新闻配置 -->
+	<package name="information" namespace="/information" extends="struts-core">
+		<!-- 新闻(保存&更新) -->
+		<action name="newsOperate" method="newsOperate" class="newsAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<!-- 新闻(查询所有) -->
+		<action name="findNewJsonPage" method="findNewJsonPage" class="newsAction"/>
+		<!-- 新闻(查询为新闻图片的) -->
+		<action name="findNewsImg" method="findNewsImg" class="newsAction"/>
+		<!-- 新闻(读取) -->
+		<action name="readNews" method="readNews" class="newsAction">
+			<result name="success">/information/newsRead.jsp</result>
+		</action>
+		
+		<!-- 公告(保存&更新) -->
+		<action name="noticeOperate" method="noticeOperate" class="noticeAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<!-- 公告(分页查询所有) -->
+		<action name="findNoticeJsonPage" method="findNoticeJsonPage" class="noticeAction"/>
+		<!-- 新闻(读取) -->
+		<action name="readNotice" method="readNotice" class="noticeAction">
+			<result name="success">/information/noticeRead.jsp</result>
+		</action>
+	</package>
+
+</struts>   

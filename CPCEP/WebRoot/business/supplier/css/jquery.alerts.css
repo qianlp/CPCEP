@@ -1,0 +1,78 @@
+#popup_overlay {
+  background-color: #000000;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+#popup_container {
+	font-family: '微软雅黑','Microsoft YaHei',Arial, sans-serif;
+	font-size: 12px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #FFF;
+	border: solid 5px #999;
+	color: #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#popup_title {
+	font-size: 15px;
+	font-weight: bold;
+	text-align: left;
+	height:32px;
+	width:100%;
+	line-height: 32px;
+	color: #666;
+	background:-webkit-gradient(linear,0% 0%,0% 100%,from(#ffffff),to(#eeeeee)); 
+	background:-webkit-linear-gradient(#ffffff,#eeeeee);
+	background:-moz-linear-gradient(#ffffff,#eeeeee);
+	background:-ms-linear-gradient(#ffffff,#eeeeee);
+	background:linear-gradient(#ffffff,#eeeeee);
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#ffffff,endcolorstr=#eeeeee,gradientType=0);
+	border-bottom: solid 1px #ddd;
+	cursor: default;
+	padding-left:15px;
+	margin: 0em;
+}
+
+#popup_content {
+	background: 12px 10px no-repeat url(images/info.gif);
+	float:left;
+	line-height:24px;
+	width:100%;
+	display:block;
+	position:relative;
+	font-size:14px;
+	padding:10px 0px 0px;
+}
+
+
+#popup_content.alert {
+	background-image: url(images/info.gif);
+}
+
+#popup_content.confirm {
+	background-image: url(images/important.gif);
+}
+
+#popup_content.prompt {
+	background-image: url(images/help.gif);
+}
+
+#popup_message {
+	padding-left: 52px;
+	padding-right:12px;
+	padding-top:3px;
+	padding-bottom:15px;
+	border-bottom:#eee 1px solid;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}

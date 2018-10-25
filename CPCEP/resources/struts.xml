@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 配置struts2.1.8 上传是文件的最大限制为100M -->
+	<constant name="struts.multipart.maxSize" value="104857600" />
+	<!-- 设置struts2 上传文件时  保存的临时目录 -->
+	<constant name="struts.multipart.saveDir" value="/temp"/>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.action.extension" value="action" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.devMode" value="false" />
+	
+	<package name="struts-core" extends="struts-default">
+		<interceptors>
+			<interceptor name="login" class="LoginInterceptor"></interceptor>
+			<interceptor-stack name="mystack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="login"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mystack"></default-interceptor-ref>
+
+		<!-- 定义全局Result 
+		<global-results>
+			<result name="login" type="redirect">/login.jsp</result>
+			<result name="error">/coresys/error.jsp</result>
+			<result name="exception">/coresys/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"/>
+			<exception-mapping result="exception" exception="htos.coresys.exception.ActionException"/>
+
+		</global-exception-mappings>-->
+	</package>
+	
+	<package name="adminOperate" namespace="/admin" extends="struts-core">
+		
+		<!-- 通用外观模型层 -->
+		<action name="loadAllList" method="loadAllList" class="commonFacadeAction"></action>
+		<action name="loadListForPage" method="loadListForPage" class="commonFacadeAction"></action>
+		<action name="loadMapListForPageHeadOrList" method="loadMapListForPageHeadOrList" class="commonFacadeAction"></action>
+		<action name="loadSuppilerId" method="loadSuppilerId" class="commonFacadeAction"> </action>
+		<action name="loadMapListForPageview" method="loadMapListForPageview" class="commonFacadeAction"></action>
+		<action name="loadMapListForPageHeadList" method="loadMapListForPageHeadList" class="commonFacadeAction"></action>
+		<action name="loadListView" method="loadListView" class="commonFacadeAction"></action>
+		<action name="loadMapListForPageList" method="loadMapListForPageList" class="commonFacadeAction"></action>
+		<action name="loadMapListForNotOrgPage" method="loadMapListForNotOrgPage" class="commonFacadeAction"></action>
+		<action name="loadListForList" method="loadListForList" class="commonFacadeAction"></action>
+		<action name="getEntityById" method="getEntityById" class="commonFacadeAction">
+			<result name="success">/workflow/wfInfoView.jsp</result>
+		</action>
+		<action name="deleteModelId" method="deleteModelId" class="commonFacadeAction"></action>
+		<action name="deleteModel" method="deleteModel" class="commonFacadeAction"></action>
+		
+		<!-- 菜单外观模型menuFacadeAction -->
+		<action name="findHasRightMenus" method="findHasRightMenus" class="menuFacadeAction"></action>
+		<action name="findSupplierMenu" method="findSupplierMenu" class="menuFacadeAction"></action>
+		<action name="findHasRightMenusAndBtn" method="findHasRightMenusAndBtn" class="menuFacadeAction"></action>
+		<action name="findHasRightMenu" method="findHasRightMenu" class="menuFacadeAction">
+			<result name="success">/coresys/commonList.jsp</result>
+		</action>
+		<action name="findHasRightMenuFlow" method="findHasRightMenu" class="menuFacadeAction">
+			<result name="success">/business/diagramFlow/commonListFlow.jsp</result>
+		</action>
+		<action name="addMenu" method="addMenu" class="menuFacadeAction"></action>
+		<action name="updateMenu" method="updateMenu" class="menuFacadeAction"></action>
+		<action name="findMenuTreeNodeList" method="findMenuTreeNodeList" class="menuFacadeAction"></action>
+		<action name="findMenuTreeNodeListById" method="findMenuTreeNodeListById" class="menuFacadeAction"></action>
+		<action name="findMenuById" method="findMenuById" class="menuFacadeAction">
+			<result name="success">/coresys/update_menu.jsp</result>
+		</action>
+		<action name="findOrgTreeWithoutUser" method="findOrgTreeWithoutUser" class="orgFacadeAction"></action>
+		<action name="rtuMenuById" method="rtuMenuById" class="menuFacadeAction">
+			<result name="success">${menu.pageComAddress}</result>
+		</action>
+		<action name="findDocById" method="findDocById" class="menuFacadeAction">
+			<result name="success">${menu.pageComAddress}</result>
+		</action>
+		<action name="findDocByCurDocId" method="findDocByCurDocId" class="menuFacadeAction">
+			<result name="success">${menu.pageComAddress}</result>
+		</action>
+		<action name="docInvalid" method="docInvalid" class="menuFacadeAction"></action>
+		<action name="findWorkFlowByDocId" method="findWorkFlowByDocId" class="menuFacadeAction"></action>
+		<!-- 查询审核状态 -->
+		<action name="findDocByCurDocStatus" method="findDocByCurDocStatus" class="menuFacadeAction"/>
+		<action name="findMenuByHasWF" method="findMenuByHasWF" class="menuFacadeAction"></action>
+		<action name="findAllMenuList" method="findAllMenu" class="menuFacadeAction"></action>
+		<action name="findSubMenuList" method="findSubMenuList" class="menuFacadeAction"></action>
+		<action name="findChildMenuList" method="findChildMenuList" class="menuFacadeAction"></action>
+		<action name="findRootMenuList" method="findRootMenuList" class="menuFacadeAction">
+			<result name="success">/coresys/right.jsp</result>
+		</action>
+		<!-- 添加按钮 -->
+		<action name="addButton" method="addButton" class="menuFacadeAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="findAllButton" method="findAllButton" class="menuFacadeAction"></action>
+		
+		<action name="updateMenuBtn" method="updateMenuBtn" class="menuFacadeAction"></action>
+		<action name="delMenuBtnById" method="delMenuBtnById" class="menuFacadeAction"></action>  
+		<action name="findMenuBtnById" method="findMenuBtnById" class="menuFacadeAction">
+			<result name="success">/coresys/update_menuBtn.jsp</result>
+		</action>
+		<action name="delMenu" method="delMenu" class="menuFacadeAction"></action>
+		<action name="docReadUserClear" method="docReadUserClear" class="menuFacadeAction"></action>
+
+		<!-- 菜单权限 -->
+		<!-- 
+		获取对应组织（个人，部门，角色）对应的权限。 
+		2016-06-08
+		bitwise
+		-->
+		<action name="getMenuRight" method="getMenuRight" class="menuFacadeAction"></action>
+		<action name="saveMenuRight" method="saveMenuRight" class="menuFacadeAction"></action>
+		
+
+		<!-- 组织外观模型orgFacadeAction -->
+		<action name="login" method="login" class="orgFacadeAction">	<!-- 用户登录 -->
+			<param name="withoutAuthentication">true</param>
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="supplier" type="redirect">/index.jsp</result>
+			<result name="login">/login.jsp</result>
+			<result name="edit">/business/supplier/edit.jsp</result>
+		</action>
+		<action name="addUser" method="addUser" class="orgFacadeAction"></action>
+		<action name="deleteDept" method="deleteDept" class="orgFacadeAction"></action>
+		<action name="findOrgTree" method="findOrgTree" class="orgFacadeAction"></action>
+		<action name="findUserIdByRole" method="findUserIdByRole" class="orgFacadeAction"></action>
+		<!-- 根据用户查询角色 -->
+		<action name="findUserRoleJson" method="findUserRoleJson" class="orgFacadeAction"/>
+		<action name="updateUserToRole" method="updateUserToRole" class="orgFacadeAction"></action>
+		<action name="saveUserToRole" method="saveUserToRole" class="orgFacadeAction"></action>
+		<!-- 查询角色后对应的用户 -->
+		<action name="findRoleByUserId" method="findRoleByUserId" class="orgFacadeAction"></action>
+		<!-- 查询所有角色对应的用户 -->
+		<action name="findAllRoleUserJson" method="findAllRoleUserJson" class="orgFacadeAction"></action>
+		<!-- 用户组织模板下载 -->
+		<action name="downloadFile" method="downloadFile" class="orgFacadeAction"></action>
+		<!-- 用户组织模板数据导入 -->
+		<action name="saveImportOrgUser" method="saveImportOrgUser" class="orgFacadeAction"></action>
+		<!-- 用户组织数据导出 -->
+		<action name="exportOrgUser" method="exportOrgUser" class="orgFacadeAction"></action>
+
+		<!-- 部门action -->
+		<action name="addDept" method="addDept" class="deptAction"></action>
+		<action name="updateDept" method="updateDept" class="deptAction"></action>
+		<action name="findDeptById" method="findDeptById" class="deptAction">
+			<result name="success">/coresys/update_dept.jsp</result>
+		</action>
+		<action name="findChildDeptsJson" method="findChildDeptsJson"
+			class="deptAction"></action>
+		<action name="findAllDeptsJson" method="findAllDeptsJson"
+			class="deptAction"></action>
+		<action name="findTwoDeptsJson" method="findTwoDeptsJson"
+			class="deptAction"></action>
+		<action name="findDeptNameById" method="findDeptNameById" class="deptAction"></action>
+		<action name="findDept" method="findDept" class="deptAction"></action>
+		<action name="findDeptUserById" method="findDeptUserById"
+			class="deptAction"></action>
+		<action name="findDeptUserByIdTurnover" method="findDeptUserByIdTurnover"
+			class="deptAction"></action>
+		<!-- 职位action -->
+		<action name="posOperate" method="posOperate" class="postionAction"></action>
+		<action name="findEditPosById" method="findEditPosById" class="postionAction">
+			<result name="success">/coresys/pos.jsp</result>
+		</action>
+		<action name="findAllPosJson" method="findAllJson" class="postionAction"></action>
+		<action name="findJsonPosAll" method="findJsonPosAll" class="postionAction"></action>
+		<action name="delPostion" method="delPostion" class="postionAction"></action>
+		<!-- 根据职位获取人员 -->
+		<action name="findPersonByPos" method="findPersonByPos" class="postionAction"></action>
+		<!-- 根据职位和部门获取人员 -->
+		<action name="findPersonByDeptOrPos" method="findPersonByDeptOrPos" class="postionAction"></action>
+
+		<!-- 用户action -->
+		<action name="findUsersJson" method="findUsersJson" class="userAction"></action>
+		<action name="updateUser" method="updateUser" class="userAction"></action>
+		<action name="updatePwd" method="updatePwd" class="userAction"></action>
+		<action name="resetPwd" method="resetPwd" class="userAction"></action>
+		<action name="findUserById" method="findUserById" class="userAction">
+			<result name="success">/coresys/update_user.jsp</result>
+		</action>
+		<action name="findUsersByDeptId" method="findUsersByDeptId" class="userAction"></action>
+		<action name="findUserByName" method="findUserByName" class="userAction"></action>
+		<action name="deleteUsers" method="deleteUsers" class="userAction"></action>
+		<action name="updateUserMd5" method="updateUserMd5" class="userAction"></action>
+		<action name="loginOut" method="loginOut" class="userAction">
+			<param name="withoutAuthentication">false</param>
+			<result name="success" type="redirect">/login.jsp</result>
+		</action>
+
+		<!-- 角色action -->
+		<action name="findAllRoleJson" method="findAllRoleJson" class="roleAction"></action>
+		<action name="findRolePageJson" method="findRolePageJson" class="roleAction"></action>
+		<action name="findFlowRoleJson" method="findFlowRoleJson" class="roleAction"></action>
+		<action name="findMenuRoleJson" method="findMenuRoleJson" class="roleAction"></action>
+		<action name="findPrjRoleJson" method="findPrjRoleJson" class="roleAction"></action>
+		<action name="findRoleUsersById" method="findRoleUsersById" class="roleAction"></action>
+		<action name="findRoleById" method="findRoleById" class="roleAction">
+			<result name="success">/coresys/update_role.jsp</result>
+		</action>
+		<action name="deleteRoles" method="deleteRoles" class="roleAction"></action>
+		<action name="addRole" method="addRole" class="roleAction"></action>
+		<action name="updateRole" method="updateRole" class="roleAction"></action>
+
+		<!-- 角色类型action -->
+		<action name="findAllRoleTypeJson" method="findAllRoleTypeJson" class="roleTypeAction"></action>
+		<action name="saveRoleType" method="saveRoleType" class="roleTypeAction"></action>
+		<action name="deleteRoleType" method="deleteRoleType" class="roleTypeAction"></action>
+		
+		<!-- 权限action -->
+		<action name="findOrgIds" method="findOrgIds" class="rightAction"></action>
+		<action name="updateRight" method="updateRight" class="rightAction"></action>
+		
+
+		<!-- 流程action -->
+		<!-- bitwise -->
+		<action name="fieldFormOperate" method="fieldFormOperate" class="workFlowAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="addWorkFlow" method="addWorkFlow" class="workFlowAction">
+			<result name="success" type="redirect">getWorkFlowById.action?wfId=${wfId}</result>
+		</action>
+		<!-- bitwise -->
+		<action name="updateWorkFlow" method="updateWorkFlow" class="workFlowAction">
+			<result name="success" type="redirect">getWorkFlowById.action?wfId=${wfId}</result>
+		</action>
+		<action name="delWorkFlow" method="delWorkFlow" class="workFlowAction">
+			<result name="success" type="redirect">/workflow/workflow.jsp</result>
+		</action>
+		<action name="findAllWF" method="findAllWF" class="workFlowAction"></action>
+		<action name="getWorkFlowXml" method="getWorkFlowXml" class="workFlowAction"></action>
+		<action name="copyWorkFlow" method="copyWorkFlow" class="workFlowAction"></action>
+		
+		<action name="wfInfo/" method="getWorkFlowByMenuId" class="workFlowAction">
+			<result name="success">/ConSys/{1}.jsp</result>
+		</action>
+		
+		<action name="getWorkFlowById" method="getWorkFlowById" class="workFlowAction">
+			<result name="success">/workflow/update_workflow.jsp</result>
+		</action>
+		
+		<!-- 表单字段 -->
+		<action name="fieldFormOperate" method="fieldFormOperate" class="fieldFormAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="addFieldForm" method="addFieldForm" class="fieldFormAction">
+		</action>
+		<!-- bitwise -->
+		<action name="updateFieldForm" method="updateFieldForm" class="fieldFormAction">
+		</action>
+		<action name="getFieldList" method="getFieldList" class="fieldFormAction"></action>
+
+		<!-- 数据展现配置 -->
+		<action name="findExhibitListJson" method="findExhibitListJson" class="exhibitParamAction"></action>
+		<action name="deleteExhibit" method="deleteExhibit" class="exhibitParamAction"></action>
+		<action name="queryExhibitById" method="queryExhibitById" class="exhibitParamAction">
+			<result name="success">/coresys/exhibitParam.jsp</result>
+		</action>
+		<action name="exhibitParamJson" method="exhibitParamJson" class="exhibitParamAction"/>
+		<action name="findExhibitById" method="findExhibitById" class="exhibitParamAction">
+			<result name="success">/coresys/commonExhibitList.jsp</result>
+		</action>
+		<!-- 数据展现配置(查询列表) -->
+		<action name="loadListForPageExhibit" method="loadListForPageExhibit" class="exhibitParamAction"/>
+		
+		<action name="imgConfigSave" method="imgConfigSave" class="userConfigAction"></action>
+		<action name="imgConfigList" method="imgConfigList" class="userConfigAction"></action>
+		<action name="imgConfigUpdate" method="imgConfigUpdate" class="userConfigAction"></action>
+		<action name="imgConfigDel" method="imgConfigDel" class="userConfigAction"></action>
+		<action name="showPicture" method="showPicture" class="userConfigAction"></action>
+		
+		<!-- 加载公司信息配置 -->
+		<action name="loadFirmConfig" method="loadFirmConfig" class="loadFirmConfigAction"></action>
+
+		
+		<!-- 添加维护-->
+		<action name="saveButtonJson" method="saveButtonJson" class="buttonAction"/>
+		<action name="deleteButton" method="deleteButton" class="buttonAction"/>
+		<action name="findButtonListJson" method="findButtonListJson" class="buttonAction"/>
+		<action name="queryButtonById" method="queryButtonById" class="buttonAction">
+			<result name="success">/coresys/buttonParam.jsp</result>
+		</action>
+
+		<!-- 公式 -->
+		<action name="formulaOperate" method="docOperate" class="formulaAction">
+			<result name="success" type="redirect">/coresys/saveOk.html</result>
+		</action>
+		<action name="findAllFormula" method="findAllJson" class="formulaAction"></action>
+		
+		<!-- 数据excel导入 -->
+		<action name="saveImportExcel" method="saveImportExcel" class="importExcelAction"/>
+		
+		<!-- 数据权限 -->
+		<action name="dataRightOperate" method="dataRightOperate" class="dataRightConfigAction">
+			<result name="success" >/coresys/dataRightConfig.jsp</result>
+		</action>
+		
+		<action name="findDataRightById" method="findDataRightById" class="dataRightConfigAction">
+			<result name="success" >/coresys/dataRightConfig.jsp</result>
+		</action>
+	</package>
+
+	<include file="file/struts-profile.xml"/>
+	<include file="message/struts-message.xml"/>
+	<include file="information/struts-information.xml"/>
+
+	<include file="business/business_struts.xml"/>
+
+
+</struts>

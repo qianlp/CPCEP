@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- 供应商 -->
+	<bean id="supplierService" class="htos.business.service.supplier.impl.SupplierServiceImpl">
+		<property name="extDao" ref="supplierExtDao"/>
+		<property name="billingDao" ref="supplierBillingDao"/>
+		<property name="userService" ref="userService"/>
+		<property name="attachmentDao" ref="supplierAttachmentDao"/>
+		<property name="biddingBulletinDao" ref="biddingBulletinDao"/>
+		<property name="supplierSignupDao" ref="supplierSignupDao"/>
+		<property name="goodsScopeDao" ref="goodsScopeDao" />
+		<property name="supplierGoodsScopeDao" ref="supplierGoodsScopeDao" />
+	</bean>
+	<bean id="supplierAttachmentService" class="htos.business.service.supplier.impl.SupplierAttachmentServiceImpl">
+		<property name="supplierAttachmentDao" ref="supplierAttachmentDao"/>
+	</bean>
+
+	<bean id="materialCategoryService" class="htos.business.service.material.impl.MaterialCategoryServiceImpl">
+		<property name="materialCategoryDao" ref="materialCategoryDao"/>
+	</bean>
+	<bean id="materialService" class="htos.business.service.material.impl.MaterialServiceImpl">
+		<property name="materialDao" ref="materialDao"/>
+	</bean>
+	<bean id="materialCategoryParamService" class="htos.business.service.material.impl.MaterialCategoryParamServiceImpl">
+		<property name="materialCategoryParamDao" ref="materialCategoryParamDao"/>
+		<property name="commonFacadeService" ref="commonFacadeService"/>
+	</bean>
+    <!-- 采购 -->
+	<bean id="purchaseApplyService" class="htos.business.service.procurement.impl.PurchaseApplyServiceImpl">
+		<property name="purchaseApplyDao" ref="purchaseApplyDao"/>
+		<property name="purchaseMaterialParamCommonDao" ref="commonDao"/>
+	</bean>
+
+	<bean id="purchaseMaterialService" class="htos.business.service.procurement.impl.PurchaseMaterialServiceImpl">
+		<property name="commonService" ref="commonService"/>
+		<property name="dao" ref="purchaseMaterialDao"/>
+	</bean>
+
+	<bean id="purchaseCandidate" class="htos.business.service.procurement.impl.PurchaseCandidateServiceImpl">
+		<property name="commonService" ref="commonService"/>
+		<property name="supplierExtDao" ref="supplierExtDao"/>
+		<property name="candiateDao" ref="purchaseCandiateDao"/>
+	</bean>
+
+	<bean id="purchasePlanService" class="htos.business.service.procurement.impl.PurchasePlanServiceImpl">
+		<property name="purchasePlanDao" ref="purchasePlanDao"/>
+	</bean>
+
+	<!--招标公告-->
+	<bean id="biddingBulletinTemplateService" class="htos.business.service.bulletin.impl.BiddingBulletinTemplateServiceImpl">
+		<property name="biddingBulletinTemplateDao" ref="biddingBulletinTemplateDao"/>
+	</bean>
+	<bean id="biddingBulletinService" class="htos.business.service.bulletin.impl.BiddingBulletinServiceImpl">
+		<property name="biddingBulletinDao" ref="biddingBulletinDao"/>
+		<property name="invitationDao" ref="invitationDao" />
+		<property name="supplierBidDao" ref="supplierBidDao"/>
+		<property name="supplierService" ref="supplierService" />
+        <property name="purchaseInfoTypeDao" ref="purchaseInfoTypeDao"/>
+        <property name="purchasePlanDao" ref="purchasePlanDao" />
+        <property name="commonDao" ref="commonDao"></property>
+	</bean>
+
+	<bean id="supplierBidService" class="htos.business.service.bid.impl.SupplierBidServiceImpl">
+		<property name="supplierBidDao" ref="supplierBidDao"/>
+		<property name="materialPriceCommonDao" ref="commonDao"/>
+		<property name="purchaseMaterialCommonDao" ref="commonDao"/>
+		<property name="supplierMaterialPriceCommonDao" ref="commonDao"/>
+		<property name="materialCategoryParamCommonDao" ref="commonDao"/>
+		<property name="supplierMaterialParamCommonDao" ref="commonDao"/>
+		<property name="supplierSignupDao" ref="supplierSignupDao"/>
+	</bean>
+	<!--招标公告-->
+	<bean id="bidFileReleaseService" class="htos.business.service.bidFileRelease.impl.BidFileReleaseServiceImpl">
+		<property name="bidFileReleaseDao" ref="bidFileReleaseDao"/>
+		<property name="supplierBidDao" ref="supplierBidDao"/>
+	</bean>
+
+	<bean id="bidFileQuestionService" class="htos.business.service.bidFileRelease.impl.BidFileQuestionServiceImpl">
+		<property name="commonService" ref="commonService"/>
+		<property name="bidfileQuestionDao" ref="bidFileQuestionDao"/>
+
+	</bean>
+
+	<bean id="smsVerifyCodeService" class="htos.business.service.sms.impl.SmsVerifyCodeServiceImpl">
+		<property name="smsVerifyCodeDao" ref="smsVerifyCodeDao"/>
+	</bean>
+	<bean id="bidEvaluationService" class="htos.business.service.bid.impl.BidEvaluationServiceImpl">
+		<property name="bidEvaluationDao" ref="bidEvaluationDao"/>
+		<property name="supplierScoreCommonDao" ref="commonDao"/>
+	</bean>
+
+	<bean id="materialAttrService" class="htos.business.service.material.impl.MaterialAttrServiceImpl">
+		<property name="materialAttrDao" ref="materialAttrDao"/>
+	</bean>
+
+	<bean id="confirmBidService" class="htos.business.service.bid.impl.ConfirmBidServiceImpl">
+		<property name="confirmBidDao" ref="confirmBidDao"/>
+	</bean>
+	<bean id="agreementService" class="htos.business.service.agreement.impl.AgreementServiceImpl">
+		<property name="agreementDao" ref="agreementDao" />
+	</bean>
+	<bean id="techEvalClarifyService" class="htos.business.service.bid.impl.TechEvalClarifyServiceImpl">
+		<property name="dao" ref="techEvalClarifyDao" />
+	</bean>
+
+</beans>

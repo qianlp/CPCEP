@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+
+	<!-- 将BaseDao实现类声明成一个bean并将sessionFactory注入 -->
+	<bean id="baseDao" class="htos.coresys.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 部门操作dao层 -->
+	<bean id="deptDao" class="htos.coresys.dao.impl.DeptDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 用户操作dao层 -->
+	<bean id="userDao" class="htos.coresys.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 用户部门中间表操作dao层 -->
+	<bean id="deptToUserDao" class="htos.coresys.dao.impl.DeptToUserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 用户角色中间表操作dao层 -->
+	<bean id="userToRoleDao" class="htos.coresys.dao.impl.UserToRoleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 角色表操作dao层 -->
+	<bean id="roleDao" class="htos.coresys.dao.impl.RoleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 角色类型表操作dao层 -->
+	<bean id="roleTypeDao" class="htos.coresys.dao.impl.RoleTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 菜单操作dao层 -->
+	<bean id="menuDao" class="htos.coresys.dao.impl.MenuDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 权限操作dao层 -->
+	<bean id="rightDao" class="htos.coresys.dao.impl.RightDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 流程操作dao层 -->
+	<bean id="workFlowDao" class="htos.coresys.dao.impl.WorkFlowDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 流程操作dao层 -->
+	<bean id="baseWorkFlowDao" class="htos.coresys.dao.impl.BaseWorkFlowDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 字段表dao层 -->
+	<bean id="fieldFormDao" class="htos.coresys.dao.impl.FieldFormDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 按钮操作dao层 -->
+	<bean id="buttonDao" class="htos.coresys.dao.impl.ButtonDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 菜单按钮操作dao层 -->
+	<bean id="menuToBtnDao" class="htos.coresys.dao.impl.MenuToBtnDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 文档流水号 -->
+	<bean id="docNumberDao" class="htos.coresys.dao.impl.DocNumberDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 通用方法操作dao层 -->
+	<bean id="commonDao" class="htos.coresys.dao.impl.CommonDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 模块文档权限嵌套 -->
+	<bean id="prtRoleDao" class="htos.coresys.dao.impl.PrtRoleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>
